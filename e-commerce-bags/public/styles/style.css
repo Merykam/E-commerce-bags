@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lobster&display=swap');
+
+
+
+.text-center{
+    color: black !important;
+    font-size: 2.5rem !important;
+    font-weight: bold;
+    font-family: 'Alfa Slab One', cursive;
+    font-family: 'Lobster', cursive;
+}
+
+.text-center span{
+    /* color: rgb(198, 106, 106); */
+    color: brown;
+    
+}
+.sidebar{
+    background-color: brown !important;
+    width: 250px !important;
+}
+.py{
+    padding-left: 16px;
+    padding-top: 19px;
+    font-size: large;
+}
+.ml{
+    margin-left: 11px;
+}
+.cards{
+    margin-left: 250px;
+    justify-content: space-around;
+    padding-top: 40px;
+}
+.card{
+    width: 15rem;
+    height: 10rem !important;
+    border-radius: 2rem !important;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 30px -12px;
+
+}
+#earn1{
+    color: brown;
+ 
+}
+.i0{
+    background-color: rgb(182, 202, 182);
+    border-radius: 50%;
+    padding: 5px;
+    color: green;
+}
+.i1{
+    background-color: rgb(224, 184, 184);
+    border-radius: 50%;
+    padding: 5px;
+    color: brown;
+}
+.i2{
+    background-color: rgb(175, 182, 206);
+    border-radius: 50%;
+    padding: 5px;
+    color: rgb(18, 41, 109);
+}
+.i3{
+    background-color: rgb(217, 192, 220);
+    border-radius: 50%;
+    padding: 5px;
+    color: rgb(149, 42, 165);
+}
+.users{
+    color: brown;
+}
+.Earnings{
+    color: green;
+}
+.Products{
+    color:rgb(0, 64, 255) ;
+}
+.Sales{
+    color:rgb(149, 42, 165) ;
+}
+
+
