@@ -11,14 +11,20 @@
 }
 
 .text-center span{
-    /* color: rgb(198, 106, 106); */
     color: brown;
+    /* color: rgb(149, 42, 165); */
     
 }
 .sidebar{
-    background-color: brown !important;
+    /* background-color: rgb(162, 118, 167) !important; */
+    background-color:brown !important;
     width: 250px !important;
 }
+.category{
+    margin-left:250px ;
+   
+}
+
 .py{
     padding-left: 16px;
     padding-top: 19px;
@@ -28,17 +34,17 @@
     margin-left: 11px;
 }
 .cards{
-    margin-left: 250px;
     justify-content: space-around;
     padding-top: 40px;
 }
-.card{
+.cards .card{
     width: 15rem;
     height: 10rem !important;
     border-radius: 2rem !important;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 30px -12px;
 
 }
+
 #earn1{
     color: brown;
  
@@ -79,5 +85,12 @@
 .Sales{
     color:rgb(149, 42, 165) ;
 }
+/* categories */
 
+.h2Category{
+    background-image: linear-gradient(to right,brown, black);
+    color: white;
+    padding: 7px;
+    border-radius: 2rem;
+}
 

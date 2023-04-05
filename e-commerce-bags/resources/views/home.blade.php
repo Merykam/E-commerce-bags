@@ -1,63 +1,7 @@
-@extends('layouts.app')
+<x-admin>
+<main>
 
-@section('Sidebar')
-
- <!-- Sidebar -->
- <nav id="sidebarMenu" class="collapse d-lg-block sidebar vh-100 position-fixed">
-    <div class="position-sticky ">
-      <div class="list-group list-group-flush">
-        <a
-          href="#"
-          class=" text-decoration-none text-white mt-4  py ripple"
-          aria-current="true"
-        
-        >
-        <i class="bi bi-speedometer2"></i><span class="ml">Dashboard</span>
-        </a>
-        <a
-          href="#"
-          class=" text-decoration-none text-white   py ripple"
-          aria-current="true"
-        
-        >
-        <i class="bi bi-bar-chart"></i><span class="ml">Statistics</span>
-        </a>
-        
-        <a href="#" class="text-white  text-decoration-none py  ripple active">
-        <i class="bi bi-card-list"></i><span class="ml">Categories</span>
-        </a>
-        <a href="#" class="text-white  text-decoration-none py ripple"
-          ><i class="bi bi-box-seam"></i><span class="ml">Products</span></a
-        >
-        <a href="#" class="text-white text-decoration-none py ripple"
-          ><i class="bi bi-cart3"></i><span class="ml">Orders</span></a
-        >
-        <a href="#" class="text-white text-decoration-none py ripple">
-        <i class="bi bi-people"></i><span class="ml">Users</span>
-        </a>
-       
-        <a href="#" class="text-white text-decoration-none py ripple"
-          ><i class="bi bi-gear"></i><span class="ml">Settings</span></a
-        >
-        <a href="#" class="text-white text-decoration-none py ripple"
-          ><i class="bi bi-box-arrow-left"></i><span class="ml">Logout</span></a
-        >
-       
-      </div>
-    </div>
-    
-
-
-  </nav>
-  <!-- Sidebar -->
-
-
-@endsection
-
-
-@section('card')
-
-<div class="cards d-flex">
+<div class="cards d-flex justify-content-between">
 
 
 <div class="card " >
@@ -116,4 +60,10 @@
 </div>
 
 </div>
-@endsection
+</main>
+
+
+
+
+</x-admin>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
