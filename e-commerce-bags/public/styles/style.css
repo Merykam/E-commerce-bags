@@ -134,3 +134,14 @@
     font-family: 'Lobster', cursive;
     color: #89b866;
 }
+.info-wrap{
+    background-image: url('/images/1.jpeg');
+    background-size: cover;
+} 
+.btn-contact{
+    background-color:#A4BC92;
+}
+.info{
+    text-decoration: none;
+    color: white;
+}
