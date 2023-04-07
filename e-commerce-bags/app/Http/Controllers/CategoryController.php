@@ -13,7 +13,10 @@ class CategoryController extends Controller
     public function index()
     {
       
-        return view('category');
+        
+        $categories = category::latest()->paginate(3);
+    
+        return view('category.index',compact('categories'));
     }
 
     /**
@@ -29,21 +32,28 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             'name' => 'required',
-            'pic' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
            
         ]);
 
-        $category = new category();
+        
+        $category = $request->all();
 
-        $category -> name = strip_tags($request ->input('name'));
-        $category -> description =strip_tags($request ->input('description'));
-      
+  
+        if ($image = $request->file('image')) {
+            // dd($image);
+            $destinationPath = 'images/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $category['image'] = $profileImage;
+        }
+    
+        category::create($category);
 
-        $category->save();
-
-        return redirect()->route('coffe.index');
+        return redirect()->route('category.index');
     }
     
 
@@ -60,7 +70,7 @@ class CategoryController extends Controller
      */
     public function edit(category $category)
     {
-        //
+        return view('category.edit',compact('category'));
     }
 
     /**
@@ -68,7 +78,26 @@ class CategoryController extends Controller
      */
     public function update(Request $request, category $category)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required'
+        ]);
+  
+        $categories = $request->all();
+  
+        if ($image = $request->file('image')) {
+            $destinationPath = 'images/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $categories['image'] = "$profileImage";
+        }else{
+            unset($categories['image']);
+        }
+          
+        $category->update($categories);
+    
+        return redirect()->route('category.index')
+                        ->with('success','Product updated successfully');
     }
 
     /**
@@ -76,6 +105,9 @@ class CategoryController extends Controller
      */
     public function destroy(category $category)
     {
-        //
+        $category->delete();
+     
+        return redirect()->route('category.index')
+                        ->with('success','Product deleted successfully');
     }
 }

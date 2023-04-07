@@ -2,7 +2,7 @@
 
 
 
-.text-center{
+.text-center1{
     color: black !important;
     font-size: 2.5rem !important;
     font-weight: bold;
@@ -11,13 +11,13 @@
 }
 
 .text-center span{
-    color: brown;
+    color: #A4BC92;
     /* color: rgb(149, 42, 165); */
     
 }
 .sidebar{
     /* background-color: rgb(162, 118, 167) !important; */
-    background-color:brown !important;
+    background-color:#A4BC92 !important;
     width: 250px !important;
 }
 .category{
@@ -32,6 +32,7 @@
 }
 .ml{
     margin-left: 11px;
+    font-weight: bold;
 }
 .cards{
     justify-content: space-around;
@@ -46,7 +47,7 @@
 }
 
 #earn1{
-    color: brown;
+    color: #A4BC92;
  
 }
 .i0{
@@ -59,7 +60,7 @@
     background-color: rgb(224, 184, 184);
     border-radius: 50%;
     padding: 5px;
-    color: brown;
+    color: #A4BC92;
 }
 .i2{
     background-color: rgb(175, 182, 206);
@@ -74,7 +75,7 @@
     color: rgb(149, 42, 165);
 }
 .users{
-    color: brown;
+    color: #A4BC92;
 }
 .Earnings{
     color: green;
@@ -88,9 +89,48 @@
 /* categories */
 
 .h2Category{
-    background-image: linear-gradient(to right,brown, black);
+    background-image: linear-gradient(to right,#A4BC92, black);
     color: white;
     padding: 7px;
     border-radius: 2rem;
 }
-
+.active>.page-link, .page-link.active {
+    background-color: #A4BC92 !important;
+    border: none !important;
+    color: white !important;
+}
+.page-link{
+    color: #A4BC92 !important;
+}
+.card-img-top{
+    height: 18rem !important;
+    object-fit: cover;
+}
+.category-card{
+    box-shadow: #A4BC92 0px 25px 30px -12px;
+}
+.brand{
+    width: 5rem;
+    height: 5rem;
+}
+.top-navbar{
+    background-color: #A4BC92;
+    height: 4rem;
+}
+.main1{
+    
+    background-image: url('/images/2.jpeg');
+   
+    
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    
+    height: calc(100vh - 7rem);
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.title1{
+    font-family: 'Alfa Slab One', cursive;
+    font-family: 'Lobster', cursive;
+    color: #89b866;
+}
