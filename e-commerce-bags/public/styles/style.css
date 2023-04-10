@@ -60,7 +60,7 @@
     background-color: rgb(224, 184, 184);
     border-radius: 50%;
     padding: 5px;
-    color: #A4BC92;
+    color: brown;
 }
 .i2{
     background-color: rgb(175, 182, 206);
@@ -110,14 +110,18 @@
     box-shadow: #A4BC92 0px 25px 30px -12px;
 }
 .brand{
-    width: 5rem;
-    height: 5rem;
+    font-family: 'Alfa Slab One', cursive;
+    font-family: 'Lobster', cursive;
+    color: black;
+}
+.brand span{
+    color: #89b866;
 }
 .top-navbar{
     background-color: #A4BC92;
     height: 4rem;
 }
-.main1{
+.bg-image{
     
     background-image: url('/images/2.jpeg');
    
@@ -145,3 +149,27 @@
     text-decoration: none;
     color: white;
 }
+.bg{
+    background-image: linear-gradient(to right,#A4BC92, black);
+}
+.btn-outline-success{
+
+border: solid 2.5px #A4BC92 !important;
+color: #A4BC92 !important;
+font-weight: bold;
+}
+.btn-outline-success:hover{
+    background-color:#A4BC92  !important;
+    color: white !important;
+    border-radius: 5px;
+}
+.nav-item:hover{
+    background-color: #A4BC92;
+}
+.nav-link:hover{
+    color: white !important;
+}
+.row {
+     --bs-gutter-x: none !important;
+}
+
