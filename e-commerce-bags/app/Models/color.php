@@ -12,6 +12,6 @@ class color extends Model
     use HasFactory;
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'product_color');
+        return $this->belongsToMany(Product::class, 'product_color')->withPivot(['quantity']);
     }
 }

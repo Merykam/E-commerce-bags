@@ -40,8 +40,10 @@ class ProductController extends Controller
         ]);
 
         try {
-            //code...
+          
             $product = $request->all();
+            
+            dd($product);
             $colors = $request->colors;
             // dd($product);
 
@@ -62,8 +64,11 @@ class ProductController extends Controller
             $new_product = Product::create($product);
             
             foreach ($colors as $color) {
-                # code...
+                
+                
+
                 $new_product->colors()->attach($color);
+
             }
 
             return redirect()->route('products.create');
