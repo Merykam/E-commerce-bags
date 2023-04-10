@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
+use App\Models\color;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -11,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('products.create');
+       
     }
 
     /**
@@ -19,7 +22,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $categories = category::all();
+        $colors = color::all();
+        return view('products.create',compact('categories','colors'));
+
     }
 
     /**
@@ -27,7 +33,49 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+           
+        ]);
+
+        try {
+            //code...
+            $product = $request->all();
+            $colors = $request->colors;
+            // dd($product);
+
+
+    
+            if ($image = $request->file('image')) {
+                // dd($image);
+                $destinationPath = 'images/';
+                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $profileImage);
+                $product['image'] = $profileImage;
+            }
+
+
+            // $category= category::findOrfail($request->category_id);
+            // $category->Product()->create($product);
+
+            $new_product = Product::create($product);
+            
+            foreach ($colors as $color) {
+                # code...
+                $new_product->colors()->attach($color);
+            }
+
+            return redirect()->route('products.create');
+        } catch (\Throwable $th) {
+            //throw $th;
+            return 'crap';
+        }
+       
+        
+        
+
+
     }
 
     /**

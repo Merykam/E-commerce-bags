@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\color;
 
 class Product extends Model
 {
@@ -11,11 +12,12 @@ class Product extends Model
     use HasFactory;
     public function Category(){
 
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(category::class, 'category_id');
 
     }
     public function colors()
     {
-        return $this->belongsToMany(Color::class, table:'ProductColor', foreignPivotKey:'product_id',relatedPivotKey:'color_id',parentKey:'id', relatedKey:'id');
+        return $this->belongsToMany(color::class,'product_color');
+        // ->withPivot('quantity');
     }
 }
