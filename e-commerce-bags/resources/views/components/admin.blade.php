@@ -142,9 +142,30 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
+
+
+
+
+
   $(".js-example-responsive").select2({
     width: 'resolve' // need to override the changed default
 });
+
+var Add=document.getElementsByClassName('Add')[0];
+const modal_body = document.querySelector('.modal-body');
+const another_modal_body = document.querySelector('.another-modal-body');
+console.log(Add);
+
+Add.addEventListener("click",Addinputs);
+function Addinputs(){
+    another_modal_body.append(modal_body.cloneNode(true));
+
+
+    
+
+
+   
+}
 </script>
 </body>
 </html>

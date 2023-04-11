@@ -17,7 +17,6 @@ class Product extends Model
     }
     public function colors()
     {
-        return $this->belongsToMany(color::class,'product_color');
-        // ->withPivot('quantity');
+        return $this->belongsToMany(color::class,'product_color')->withPivot('quantity');
     }
 }
