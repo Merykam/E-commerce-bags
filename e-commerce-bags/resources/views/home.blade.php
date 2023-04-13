@@ -63,7 +63,50 @@
 </main>
 
 
+<table id="example" class="table table-striped mt-5" style="width:100%">
+        <thead>
+            <tr class="head">
+                <th>Product name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Discount price</th>
+                <th>status</th>
+                <th>Image</th>
+                <th>Action</th>
+               
+                
+            </tr>
+        </thead>
+        @foreach($products as $product)
+        <tbody>
+            <tr class="bg-white">
+             
+                <td>{{$product->name}}</td>
+                <td>{{$product->Category->name}}</td>
+                <td>{{$product->price}}</td>
+                <td>{{$product->discount_price}}</td>
+                <td>{{$product->in_stock}}</td>
+                <td> <img class="img-product" src="{{asset('images/' . $product->image)}}" alt="image"></td>
+                <td><a href="{{route('products.show', [$product->id])}}"><i class="bi-eye"></i></a>
+                    <a href="{{route('products.edit', [$product->id])}}" onclick="editProductsData()">edit</a>
+                </td>
+              
+
+
+            
+            </tr>
+            
+        </tbody>
+        @endforeach
+</table>
+
 
 
 </x-admin>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function () {
+    $('#example').DataTable();
+});
+
+</script>

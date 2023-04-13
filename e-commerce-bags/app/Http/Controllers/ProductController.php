@@ -16,7 +16,7 @@ class ProductController extends Controller
     {
        
     }
-
+  
     /**
      * Show the form for creating a new resource.
      */
@@ -93,15 +93,28 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+
+        $product = Product::find($id);
+        $productcolors = $product->colors;
+        // dd( $productcolors);
+        // foreach($productcolors as $m){
+        //     echo 'name'. $m->name;
+        //     echo 'q'. $m->pivot->quantity;
+        //     echo '<br>';
+        // }
+        // return;
+        return view('products.show', compact('product','productcolors'));
+       
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Product $product)
     {
-        //
+        $categories = category::all();
+        $colors = color::all();
+        return view('products.edit',compact('product','categories','colors'));
     }
 
     /**

@@ -35,10 +35,33 @@ class ColorSeeder extends Seeder
             'Lavender',
             'Indigo',
         ];
+        $color_classes = [
+            'danger',
+            'success',
+            'primary',
+            'warning',
+            'Purple',
+            'Pink',
+            'Orange',
+            'Brown',
+            'Black',
+            'White',
+            'Gray',
+            'Teal',
+            'Magenta',
+            'Cyan',
+            'Maroon',
+            'Navy',
+            'Olive',
+            'Turquoise',
+            'Lavender',
+            'Indigo',
+        ];
     
-        foreach ($colors as $color) {
+        foreach ($colors as $key => $color) {
             DB::table('colors')->insert([
                 'name' => $color,
+                'classe_bs' => $color_classes[$key],
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

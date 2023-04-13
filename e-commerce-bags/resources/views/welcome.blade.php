@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
 </head>
 <body>
-<nav class="top-navbar ">
+<!-- <nav class="top-navbar ">
 
   
-</nav>
+</nav> -->
 
 <!-- second nav -->
 

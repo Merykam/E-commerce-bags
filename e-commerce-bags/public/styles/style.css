@@ -17,7 +17,7 @@
 }
 .sidebar{
     /* background-color: rgb(162, 118, 167) !important; */
-    background-color:#A4BC92 !important;
+    background-color:#263A29 !important;
     width: 250px !important;
 }
 .category{
@@ -118,18 +118,24 @@
     color: #89b866;
 }
 .top-navbar{
-    background-color: #A4BC92;
+    background-color: #263A29;
     height: 4rem;
+}
+.bg-image img{
+    width: 100% !important;
+    height: 100%;
 }
 .bg-image{
     
-    background-image: url('/images/2.jpeg');
+    background-image: url('/images/paque.jpg');
    
     
     background-size: cover;
+    background-repeat: no-repeat;
     /* background-repeat: no-repeat; */
-    
-    height: calc(100vh - 7rem);
+/*     
+    height: calc(100vh - 7rem); */
+    height: 100vh;
     width: 100%;
     margin-bottom: 2rem;
 }
@@ -172,4 +178,101 @@ font-weight: bold;
 .row {
      --bs-gutter-x: none !important;
 }
+.dataTables_length{
+    margin-top: 3rem !important;
+}
+.form-control-sm{
+    margin-top: 3rem !important;
+}
+.head{
+    background-image: linear-gradient(to right,#A4BC92, black);
+    color: white;
 
+    
+}
+thead{
+    border-radius: 3rem !important;
+}
+
+
+.odd{
+   background-color: white !important;
+}
+.bi-eye{
+    font-size: 20px !important;
+    text-align: center;
+    color: #274511;
+}
+.img-product{
+    width: 40px;
+}
+.img-show{
+    width: 440px;
+    height: 440px;
+}
+.marginProduit{
+    margin-top:60px;
+    margin-left: 100px;
+}
+.action-product{
+    font-size: 25px;
+}
+.btn-color{
+    width: 30px;
+    height: 30px;
+    border-radius: 1rem;
+}
+.Red{
+    background-color:red ;
+}
+.Green{
+    background-color:green ;
+}
+.Yellow{
+    background-color:Yellow ;
+}
+.Purple{
+    background-color:Purple ;
+}
+.Pink{
+    background-color:Pink ;
+}
+.Orange{
+    background-color:red ;
+}
+.Brown{
+    background-color:Brown ;
+}
+.Black{
+    background-color:Black ;
+}
+.White{
+    background-color:rgba(255, 255, 255, 0.9) ;
+}
+.Gray{
+    background-color:Gray ;
+}
+.Magenta{
+    background-color:Magenta ;
+}
+.Cyan{
+    background-color:Cyan ;
+}
+.Maroon{
+    background-color:Maroon ;
+}
+.Navy{
+    background-color:Navy ;
+}
+.Olive{
+    background-color:Olive;
+}
+.Turquoise{
+    background-color:Turquoise;
+}
+.Lavender{
+    background-color:Lavender ;
+}
+.Indigo{
+    background-color:Indigo ;
+}
