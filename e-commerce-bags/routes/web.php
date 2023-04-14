@@ -30,3 +30,6 @@ Route::resource('products', ProductController::class);
 Route::resource('admin', AdminController::class);
 
 
+// adminRoutes
+
+Route::get('admin/adminEditPofile', [App\Http\Controllers\AdminController::class, 'profile'])->name('editProfile');

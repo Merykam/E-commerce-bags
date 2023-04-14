@@ -63,26 +63,7 @@
                                 </li>
                             @endif
                         @else
-                            {{-- <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                
-                            </li> --}}
-                            {{-- <div class="dropdown">
-                              <a class="nav-link dropdown-toggle user-name" href="#" role="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="{{asset('images/unnamed.jpg')}}" alt="User Image" class="img-fluid rounded-circle mr-2" height="40px" width="40px">
-                                {{ Auth::user()->name }}
-                              </a>
-                              <div class="dropdown-menu" aria-labelledby="userDropdown">
-                                <a class="dropdown-item text-black" href="#">Profile</a>
-                                <a class="dropdown-item" href="#">Settings</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Logout</a>
-                              </div>
-                            </div> --}}
-                                <!-- Avatar -->
+                          
       <div class="dropdown">
         <a
           class=" user-name dropdown-toggle d-flex align-items-center hidden-arrow"
@@ -107,13 +88,12 @@
           aria-labelledby="navbarDropdownMenuAvatar"
         >
           <li>
-            <a class="dropdown-item" href="#">My profile</a>
+            <a class="dropdown-item" href="{{url('/admin')}}">My profile</a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="{{route('editProfile')}}">Edit profile</a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">Logout</a>
           </li>
         </ul>
       </div>

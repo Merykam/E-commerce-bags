@@ -101,61 +101,36 @@
 </nav>
 
 
-
-
-<section class="vh-100" style="background-color: #f4f5f7;">
-    <div class="container admincard py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center ">
-        <div class="col col-lg-6 mb-4 mb-lg-0">
-          <div class="card admincard mb-3" style="border-radius: .5rem;">
-            <div class="row g-0">
-              <div class="col-md-4 gradient-custom text-center text-white"
-                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                  alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-                <h5>Marie Horwitz</h5>
-                <p>Web Designer</p>
-                <i class="far fa-edit mb-5"></i>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body p-4">
-                  <h6>Information</h6>
-                  <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <h6>Email</h6>
-                      <p class="text-muted">info@example.com</p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Phone</h6>
-                      <p class="text-muted">123 456 789</p>
-                    </div>
-                  </div>
-                  <h6>Projects</h6>
-                  <hr class="mt-0 mb-4">
-                  <div class="row pt-1">
-                    <div class="col-6 mb-3">
-                      <h6>Recent</h6>
-                      <p class="text-muted">Lorem ipsum</p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Most Viewed</h6>
-                      <p class="text-muted">Dolor sit amet</p>
-                    </div>
-                  </div>
-                  <div class="d-flex justify-content-start">
-                    <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
-                    <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
-                    <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
-                  </div>
-                </div>
-              </div>
+<form 
+        id="formAccountSettings" 
+        method="POST" 
+        action="{{ route('profile.update',auth()->id()) }}" 
+        enctype="multipart/form-data"
+        class="needs-validation" 
+        role="form"
+        novalidate
+    >
+    @csrf
+    <div class="card-body">
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label for="name" class="form-label">{{ trans('sentence.name')}}</label>
+                <input class="form-control" type="text" id="name" name="name" value="{{ auth()->user()->name }}" autofocus="" required>
+                <div class="invalid-tooltip">{{ trans('sentence.required')}}</div>
             </div>
-          </div>
+            <div class="mb-3 col-md-6">
+                <label for="email" class="form-label">{{ trans('sentence.email')}}</label>
+                <input class="form-control" type="text" id="email" name="email" value="{{ auth()->user()->email }}" placeholder="john.doe@example.com">
+                <div class="invalid-tooltip">{{ trans('sentence.required')}}</div>
+            </div>
+            <div class="mt-2">
+                <button type="submit" class="button-create me-2">{{ trans('sentence.save_changes')}}</button>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
-    
+</form>
+
+
+   
 </body>
 </html>
