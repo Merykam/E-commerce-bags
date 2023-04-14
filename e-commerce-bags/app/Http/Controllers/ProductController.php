@@ -138,7 +138,7 @@ class ProductController extends Controller
                     $data[$colorId] = ['quantity' => $quantities[$index]];
                 }
             
-                dd($data);
+              
 
 
     
@@ -154,7 +154,8 @@ class ProductController extends Controller
            $product->update($productItems);
         //    $associativeArray = array_combine($keys, $quantities);
             // dd($result);
-            $product->colors()->sync($data);
+             $product->colors()->sync($data);
+            
          
 
             return redirect()->route('home');
@@ -167,8 +168,11 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+     
+        return redirect()->route('home')
+                        ->with('success','Product deleted successfully');
     }
 }

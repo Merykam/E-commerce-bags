@@ -85,45 +85,6 @@
                 @foreach($productcolors as $color)
                 <div class="row">
                     <h6 class="col-3 btn-color {{$color->name}}"></h6>
-                    <!-- <h6 class="col-3 btn-color 
-                    @if($color->pivot->color_id == 1){
-                        bg-danger
-                    }@elseif($color->pivot->color_id == 2){
-                        bg-success
-                    }@elseif($color->pivot->color_id == 3){
-                        bg-primary
-                    }@elseif($color->pivot->color_id == 4){
-                        bg-warning
-                    }
-                    @elseif($color->pivot->color_id == 5){
-                        bg-$purple-400
-                    }
-                    @elseif($color->pivot->color_id == 4){
-                        bg-warning
-                    }
-                    @elseif($color->pivot->color_id == 4){
-                        bg-warning
-                    }
-                    @elseif($color->pivot->color_id == 4){
-                        bg-warning
-                    }
-                    @elseif($color->pivot->color_id == 4){
-                        bg-warning
-                    }
-                    @elseif($color->pivot->color_id == 4){
-                        bg-warning
-                    }
-                    @elseif($color->pivot->color_id == 4){
-                        bg-warning
-                    }
-                    @elseif($color->pivot->color_id == 4){
-                        bg-warning
-                    }
-                    @endif
-                    "> -->
-                        
-
-                    </h6>
                     <h6 class="col-3 ms-5">Quantity : {{$color->pivot->quantity}}</h6>
                     
                 

@@ -3,8 +3,47 @@
 
 <div class="cards d-flex justify-content-between">
 
+    <div class="card " >
+    <div class="card-body  d-flex justify-content-center aligh-items-center flex-column">
+        <div class="d-flex justify-content-between">
+        <h5>Earnings</h5>
+        <i class="bi bi-speedometer2 w3-xlarge i0" id="earn"></i> 
+        </div>
+       
+        <h1 class="Earnings">550 $</h1>
+     
+        </div>
+    </div>
 
-<div class="card " >
+    <div class="card " >
+        <div class="card-body  d-flex justify-content-center aligh-items-center flex-column">
+            <div class="d-flex justify-content-between">
+            <h5>Earnings</h5>
+            <i class="bi bi-speedometer2 w3-xlarge i0" id="earn"></i> 
+            </div>
+           
+            <h1 class="Earnings">550 $</h1>
+         
+            </div>
+    </div>
+
+    <div class="card " >
+        <div class="card-body  d-flex justify-content-center aligh-items-center flex-column">
+            <div class="d-flex justify-content-between">
+            <h5>Earnings</h5>
+            <i class="bi bi-speedometer2 w3-xlarge i0" id="earn"></i> 
+            </div>
+           
+            <h1 class="Earnings">550 $</h1>
+         
+            </div>
+        </div>
+
+    
+
+    
+ 
+{{-- <div class="card " >
 
 <div class="card-body  d-flex justify-content-center aligh-items-center flex-column">
     <div class="d-flex justify-content-between">
@@ -57,7 +96,7 @@
  
 </div>
 
-</div>
+</div> --}}
 
 </div>
 </main>
@@ -87,8 +126,18 @@
                 <td>{{$product->discount_price}}</td>
                 <td>{{$product->in_stock}}</td>
                 <td> <img class="img-product" src="{{asset('images/' . $product->image)}}" alt="image"></td>
-                <td><a href="{{route('products.show', [$product->id])}}"><i class="bi-eye"></i></a>
-                    <a href="{{route('products.edit', [$product->id])}}" onclick="editProductsData()">edit</a>
+                <td class="d-flex justify-content-center ">
+                 
+                    <a  class="btn btn-eye d-flex align-items-center" href="{{route('products.show', [$product->id])}}"><i class="bi-eye"></i></a>
+                    <a  class="btn btn-update ms-2" href="{{route('products.edit', [$product->id])}}" ><i class="bi bi-pencil-square"></i></a>
+                    <form method="post" action="{{route('products.destroy',[$product->id])}}">
+                        @csrf 
+                        @method('DELETE')
+    
+                        <button type="submit"  class="btn btn-danger ms-2" ><i class="bi bi-archive"></i></button>
+    
+                    </form>
+
                 </td>
               
 

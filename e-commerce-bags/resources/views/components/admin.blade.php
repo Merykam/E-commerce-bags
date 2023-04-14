@@ -28,11 +28,14 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-  <nav class="navbar navbar-expand-md  bg-white shadow-sm ">
+  <nav class="navbar navbar-expand-md  nav-admin shadow-sm ">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                  <!-- <img class="brand" src="{{asset('images/MK.png')}}" alt="" srcset=""> -->
-                  <h1 class="brand"><span>M</span>k <span>B</span>ags</h1>
+                  <div class="d-flex">
+                    <img  width="40px" height="40px" class="brand-img" src="{{asset('images/green.png')}}" alt="" srcset=""> 
+                    <h1 class="brand">LuxeTote</h1>
+                  </div>
+                   
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -60,23 +63,62 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            {{-- <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class=" dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                
+                            </li> --}}
+                            {{-- <div class="dropdown">
+                              <a class="nav-link dropdown-toggle user-name" href="#" role="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="{{asset('images/unnamed.jpg')}}" alt="User Image" class="img-fluid rounded-circle mr-2" height="40px" width="40px">
+                                {{ Auth::user()->name }}
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="userDropdown">
+                                <a class="dropdown-item text-black" href="#">Profile</a>
+                                <a class="dropdown-item" href="#">Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Logout</a>
+                              </div>
+                            </div> --}}
+                                <!-- Avatar -->
+      <div class="dropdown">
+        <a
+          class=" user-name dropdown-toggle d-flex align-items-center hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuAvatar"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+            class="rounded-circle"
+            height="30"
+            alt="Black and White Portrait of a Man"
+            loading="lazy"
+          />
+          <span class="ms-2">{{ Auth::user()->name }}</span>
+          
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuAvatar"
+        >
+          <li>
+            <a class="dropdown-item" href="#">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Settings</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+                            
                         @endguest
                     </ul>
                 </div>
@@ -121,13 +163,17 @@
               <a href="#" class="text-white text-decoration-none py ripple"
                 ><i class="bi bi-gear"></i><span class="ml">Settings</span></a
               >
+            
+              <a class=" text-white text-decoration-none py ripple" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+
+                  <i class="bi bi-box-arrow-left"></i><span class="ml">Logout</span>
+              </a> 
+
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-              Logout
-              @csrf
-            </form>
-              <a href="{{ route('logout') }}" class="text-white text-decoration-none py ripple"
-                ><i class="bi bi-box-arrow-left"></i><span class="ml">Logout</span></a
-              >
+                @csrf
+            </form> 
             
             </div>
           </div>
@@ -147,6 +193,11 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"
+></script>
 
 <script src="{{ asset('script/script.js') }}"></script>
 

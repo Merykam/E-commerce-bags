@@ -11,14 +11,14 @@
 }
 
 .text-center span{
-    color: #A4BC92;
+    color: black !important;
     /* color: rgb(149, 42, 165); */
     
 }
 .sidebar{
     /* background-color: rgb(162, 118, 167) !important; */
     background-color:#263A29 !important;
-    width: 250px !important;
+    width: 200px !important;
 }
 .category{
     margin-left:250px ;
@@ -36,17 +36,21 @@
 }
 .cards{
     justify-content: space-around;
-    padding-top: 40px;
+    padding-top: 20px;
 }
 .cards .card{
-    width: 15rem;
+    width: 20rem;
+    height: 8rem;
+    /* width: 15rem;
     height: 10rem !important;
-    border-radius: 2rem !important;
+    border-radius: 2rem !important; */
     box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 30px -12px;
+    background-image: linear-gradient(to right,white, rgb(75, 104, 75));
+    color: black;
 
 }
 
-#earn1{
+/* #earn1{
     color: #A4BC92;
  
 }
@@ -55,7 +59,7 @@
     border-radius: 50%;
     padding: 5px;
     color: green;
-}
+} */
 .i1{
     background-color: rgb(224, 184, 184);
     border-radius: 50%;
@@ -78,7 +82,7 @@
     color: #A4BC92;
 }
 .Earnings{
-    color: green;
+    color: black;
 }
 .Products{
     color:rgb(0, 64, 255) ;
@@ -114,11 +118,20 @@
     font-family: 'Lobster', cursive;
     color: black;
 }
+.brand-img{
+    color: #263A29;
+}
 .brand span{
-    color: #89b866;
+    color: black;
 }
 .top-navbar{
     background-color: #263A29;
+    height: 4rem;
+}
+.nav-admin{
+    /* background-color: #c1d1c2 ; */
+    /* background-image: linear-gradient(to right,white, #263A29); */
+    background-color: white;
     height: 4rem;
 }
 .bg-image img{
@@ -169,12 +182,13 @@ font-weight: bold;
     color: white !important;
     border-radius: 5px;
 }
-.nav-item:hover{
-    background-color: #A4BC92;
+.user-name{
+    color:black !important;
+    font-weight: bold;
+    border-radius: 3rem;
+    text-decoration: none;
 }
-.nav-link:hover{
-    color: white !important;
-}
+
 .row {
      --bs-gutter-x: none !important;
 }
@@ -185,7 +199,8 @@ font-weight: bold;
     margin-top: 3rem !important;
 }
 .head{
-    background-image: linear-gradient(to right,#A4BC92, black);
+    /* background-image: linear-gradient(to right,#A4BC92, black); */
+    background-color: black;
     color: white;
 
     
@@ -200,11 +215,12 @@ thead{
 }
 .bi-eye{
     font-size: 20px !important;
-    text-align: center;
-    color: #274511;
+  
+
 }
-.img-product{
+.img-product {
     width: 40px;
+    height: 30px;
 }
 .img-show{
     width: 440px;
@@ -275,4 +291,14 @@ thead{
 }
 .Indigo{
     background-color:Indigo ;
+}
+.btn-update{
+    background-color: green !important;
+    color: white !important;
+}
+.btn-eye{
+    background-color: rgb(200, 129, 29) !important;
+    color: white !important;
+    width: 41px;
+    height: 36px;
 }
