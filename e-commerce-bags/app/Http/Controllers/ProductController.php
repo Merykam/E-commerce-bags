@@ -120,9 +120,48 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Product $product)
     {
-        //
+       
+        try {
+          
+            $productItems=$request->all();
+         
+           
+            
+                $colors = $request->colors;
+                $quantities = $request->quantity;
+
+                // Combine the colors and quantities into an associative array
+                $data = [];
+                foreach ($colors as $index => $colorId) {
+                    $data[$colorId] = ['quantity' => $quantities[$index]];
+                }
+            
+                dd($data);
+
+
+    
+            if ($image = $request->file('image')) {
+                $destinationPath = 'images/';
+                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $profileImage);
+                $product['image'] = $profileImage;
+            }else{
+                unset($product['image']);
+            }
+
+           $product->update($productItems);
+        //    $associativeArray = array_combine($keys, $quantities);
+            // dd($result);
+            $product->colors()->sync($data);
+         
+
+            return redirect()->route('home');
+        } catch (\Throwable $th) {
+        
+            return 'crap';
+        }
     }
 
     /**

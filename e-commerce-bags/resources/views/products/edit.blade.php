@@ -10,7 +10,7 @@
             </ul>
         </div>
     @endif
-    <form method="post" action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data">
+    <form method="post" action="{{ route('products.update',$product->id) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -94,9 +94,8 @@
             <div class="form-group col">
                 <label for="inputState" class="fw-bold">In stock</label>
                 <select id="inputState" class="form-control" name="in_stock">
-                    <option value="{{ $product->in_stock }}" {{ $product->in_stock == 0 ? 'selected' : '1' }}>0
-                    </option>
-                    <option>1</option>
+                    <option value="0" {{$product->in_stock == 0 ? 'selected' : ''}}>0</option>
+                    <option value="1" {{$product->in_stock == 1 ? 'selected': ''}}>1</option>
                 </select>
             </div>
             <div class="form-group">

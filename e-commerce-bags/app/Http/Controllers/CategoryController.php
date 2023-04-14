@@ -78,9 +78,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, category $category)
     {
+        dd($category->all());
         $request->validate([
             'name' => 'required',
-            'image' => 'required'
+            
         ]);
   
         $categories = $request->all();

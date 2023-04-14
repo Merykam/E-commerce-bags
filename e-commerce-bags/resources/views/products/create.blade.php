@@ -1,6 +1,5 @@
 <x-admin>
 
-
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -39,20 +38,12 @@
 
     <div class="row modal-body">
     <div class="form-group col-6 ">
-        <!-- <p for="inputAddress" class="fw-bold m-0">Color</p>
-        <select name="colors[]" class="js-example-responsive" multiple="multiple" style="width: 100%">
-            <option disabled>Choose colors...</option>
-                @foreach($colors as $color)
+      
+                {{-- @foreach($colors as $color)
             <option value="{{$color->id}}">{{$color->name}}</option>
                 @endforeach
-        </select> -->
-        <!-- <label for=" " class="fw-bold">Color</label>
-        <select name="colors[]" class="" class="form-control" id="inputState"  >
-            <option disabled>Choose colors...</option>
-                @foreach($colors as $color)
-            <option value="{{$color->id}}">{{$color->name}}</option>
-                @endforeach
-        </select>  -->
+        </select>  --}}
+
         <label for="inputState" class="fw-bold">Color</label>
           <select name="colors[]"  id="inputState" class="form-control" name="in_stock">
               @foreach($colors as $color)
