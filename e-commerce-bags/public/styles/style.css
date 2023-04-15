@@ -318,3 +318,9 @@ thead{
     background-image: linear-gradient(to right,black, rgb(75, 104, 75));
     }
 
+
+ /* login */
+
+ .bg-card-login{
+    background-color: rgb(164, 196, 164) !important;
+ }

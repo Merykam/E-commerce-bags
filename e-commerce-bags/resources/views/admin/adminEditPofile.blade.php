@@ -1,45 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-    <!-- datatable -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+
+
+
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
+    </script>
+
+
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-md  nav-admin shadow-sm ">
+    <nav class="navbar navbar-expand-md  nav-admin shadow-sm d-flex align-items-cente justify-content-between ">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-              <div class="d-flex">
-                <img  width="40px" height="40px" class="brand-img" src="{{asset('images/green.png')}}" alt="" srcset=""> 
-                <h1 class="brand">LuxeTote</h1>
-              </div>
-               
+            <a class="navbar-brand d-flex" href="{{ url('/') }}">
+                <div class="d-flex align-items-center">
+                    <img width="40px" height="40px" class="brand-img" src="{{ asset('images/green.png') }}"
+                        alt="" srcset="">
+                    <h1 class="brand">LuxeTote</h1>
+                </div>
+
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto">
 
-                </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
@@ -57,51 +74,37 @@
                             </li>
                         @endif
                     @else
-                       
-  <div class="dropdown">
-    <a
-      class=" user-name dropdown-toggle d-flex align-items-center hidden-arrow"
-      href="#"
-      id="navbarDropdownMenuAvatar"
-      role="button"
-      data-mdb-toggle="dropdown"
-      aria-expanded="false"
-    >
-      <img
-        src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-        class="rounded-circle"
-        height="30"
-        alt="Black and White Portrait of a Man"
-        loading="lazy"
-      />
-      <span class="ms-2">{{ Auth::user()->name }}</span>
-      
-    </a>
-    <ul
-      class="dropdown-menu dropdown-menu-end"
-      aria-labelledby="navbarDropdownMenuAvatar"
-    >
-      <li>
-        <a class="dropdown-item" href="#">My profile</a>
-      </li>
-      <li>
-        <a class="dropdown-item" href="#">Settings</a>
-      </li>
-      <li>
-        <a class="dropdown-item" href="#">Logout</a>
-      </li>
-    </ul>
-  </div>
-</div>
-                        
-                    @endguest
-                </ul>
-            </div>
+                        <div class="dropdown">
+                            <a class=" user-name dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+                                id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown"
+                                aria-expanded="false">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle"
+                                    height="30" alt="Black and White Portrait of a Man" loading="lazy" />
+                                <span class="ms-2">{{ Auth::user()->name }}</span>
+
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                                <li>
+                                    <a class="dropdown-item" href="#">My profile</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Settings</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+
+            @endguest
+            </ul>
         </div>
-</nav>
+
+    </nav>
 
 
-<form 
+    {{-- <form 
         id="formAccountSettings" 
         method="POST" 
         action="{{ route('profile.update',auth()->id()) }}" 
@@ -128,9 +131,80 @@
             </div>
         </div>
     </div>
-</form>
+</form> --}}
 
 
-   
+
+    <div class="container">
+        <h1>Edit Profile</h1>
+        <hr>
+        <div class="row  ">
+            <!-- left column -->
+            <div class="col-md-4">
+                <div class="text-center">
+                    <img src="//placehold.it/100" class="avatar rounded-circle" alt="avatar">
+
+
+                    <input type="file" class="form-control">
+                </div>
+            </div>
+
+            <!-- edit form column -->
+            <div class="col-md-8 personal-info ">
+                <div class="alert alert-info alert-dismissable">
+                    <a class="panel-close close" data-dismiss="alert">×</a>
+                    <i class="fa fa-coffee"></i>
+                    This is an <strong>.alert</strong>. Use this to show important messages to the user.
+                </div>
+                <h3>Personal info</h3>
+
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Name</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" value="Jane">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Email:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Password:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Confirm password:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-8">
+                            <input type="button" class="btn btn-primary" value="Save Changes">
+                            <span></span>
+                            <input type="reset" class="btn btn-default" value="Cancel">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+
+
 </body>
+
 </html>
