@@ -330,6 +330,7 @@ thead{
  .bg-card-login{
     border-radius: 5rem !important;
     box-shadow: #5c8763 5px 10px;
+    border: 1px solid rgb(184, 179, 179);
  }
  .btn-login{
     background-color: #356c3d !important;
@@ -345,4 +346,8 @@ thead{
  .login a{
 
     color: white;
+ }
+ .input-login{
+    color:#24572b ;
+    font-weight: bold;
  }
