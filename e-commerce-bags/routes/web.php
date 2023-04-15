@@ -27,9 +27,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('category', CategoryController::class);
 Route::resource('products', ProductController::class);
-Route::resource('admin', AdminController::class);
+Route::get('/admin',[AdminController::class,'index'] );
 
 
 // adminRoutes
 
-Route::get('admin/adminEditPofile', [App\Http\Controllers\AdminController::class, 'profile'])->name('editProfile');
+Route::get('/profile', [App\Http\Controllers\AdminController::class, 'profile'])->name('editProfile');
+Route::post('profile/{user}',[AdminController::class,'update'])->name('profile.update');
