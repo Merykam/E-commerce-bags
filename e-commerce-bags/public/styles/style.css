@@ -321,6 +321,28 @@ thead{
 
  /* login */
 
+
+ .img-card-bg{
+    background-color: #b0d0b5;
+    border-top-left-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+ }
  .bg-card-login{
-    background-color: rgb(164, 196, 164) !important;
+    border-radius: 5rem !important;
+    box-shadow: #5c8763 5px 10px;
+ }
+ .btn-login{
+    background-color: #356c3d !important;
+    color: white !important;
+ }
+ .login{
+    background-color: #24572b !important;
+    color: white !important;
+    border-radius: 1rem;
+    padding: 3px;
+
+ }
+ .login a{
+
+    color: white;
  }
