@@ -820,18 +820,33 @@
             <div class="col-lg-8">
                 <div class="card-body  px-md-5">
 
-                    <form>
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
                         <!-- Email input -->
                         <div class="form-outline mb-4">
                             <label class="form-label input-login" for="form2Example1">Email address</label>
-                            <input type="email" id="form2Example1" class="form-control" />
+                            <input id="email" type="email"
+                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                value="{{ old('email') }}" required autocomplete="email" autofocus />
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
 
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
                             <label class="form-label input-login" for="form2Example2">Password</label>
-                            <input type="password" id="form2Example2" class="form-control" />
+                            <input id="password" type="password"
+                            class="form-control @error('password') is-invalid @enderror" name="password"
+                            required autocomplete="current-password" />
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
 
                         </div>
 
@@ -852,7 +867,7 @@
                         </div>
 
                         <!-- Submit button -->
-                        <button type="button" class="btn btn-login btn-block mb-4">Sign in</button>
+                        <button type="submit" class="btn btn-login btn-block mb-4">Sign in</button>
 
                     </form>
 

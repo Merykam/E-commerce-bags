@@ -113,41 +113,45 @@
                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                   alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-                <h5>Marie Horwitz</h5>
-                <p>Web Designer</p>
-                <i class="far fa-edit mb-5"></i>
+                <h5>{{ auth()->user()->name }}</h5>
+                <p>Admin</p>
+               
               </div>
               <div class="col-md-8">
                 <div class="card-body p-4">
-                  <h6>Information</h6>
+                  <div class="row">
+                    <h6 class="col">Information</h6>
+                    <div class="col d-flex justify-content-end">
+                      <a href="{{route('editProfile')}}"><i style="color :green;" class=" bi bi-pencil-square"></i></a>
+                    </div>
+                    
+                  </div>
+                 
                   <hr class="mt-0 mb-4">
                   <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Name</h6>
+                      <p class="text-muted">{{ auth()->user()->name }}</p>
+                    </div>
                     <div class="col-6 mb-3">
                       <h6>Email</h6>
-                      <p class="text-muted">info@example.com</p>
-                    </div>
-                    <div class="col-6 mb-3">
-                      <h6>Phone</h6>
-                      <p class="text-muted">123 456 789</p>
+                      <p class="text-muted">{{ auth()->user()->email }}</p>
                     </div>
                   </div>
-                  <h6>Projects</h6>
-                  <hr class="mt-0 mb-4">
+                 
+               
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
-                      <h6>Recent</h6>
-                      <p class="text-muted">Lorem ipsum</p>
+                      <h6>Role</h6>
+                      <p class="text-muted">Admin</p>
                     </div>
                     <div class="col-6 mb-3">
-                      <h6>Most Viewed</h6>
-                      <p class="text-muted">Dolor sit amet</p>
+                      <h6>Phone number</h6>
+                      <p class="text-muted">+212602846507</p>
                     </div>
+
                   </div>
-                  <div class="d-flex justify-content-start">
-                    <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
-                    <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
-                    <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
-                  </div>
+
                 </div>
               </div>
             </div>

@@ -135,8 +135,8 @@
 
 
 
-    <div class="container">
-        <h1>Edit Profile</h1>
+    <div class="container p-3" style="border: 1px gray solid; border-radius : 2rem; box-shadow: #5c8763 5px 10px; margin-top: 4rem;" >
+  
         <hr>
         <div class="row  ">
             <!-- left column -->
@@ -151,46 +151,76 @@
 
             <!-- edit form column -->
             <div class="col-md-8 personal-info ">
-                <div class="alert alert-info alert-dismissable">
+                {{-- <div class="alert alert-info alert-dismissable">
                     <a class="panel-close close" data-dismiss="alert">×</a>
                     <i class="fa fa-coffee"></i>
                     This is an <strong>.alert</strong>. Use this to show important messages to the user.
+                </div> --}}
+                {{-- <h3 style="color : green">Personal info</h3> --}}
+
+                <form class="form-horizontal"  id="formAccountSettings" 
+                method="POST" 
+                action="{{ route('profile.update',auth()->id()) }}" 
+                enctype="multipart/form-data"
+                class="needs-validation" 
+                role="form"
+                novalidate>
+                    @csrf
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <div class="">
+                            <input value="{{ auth()->user()->name }}" class="form-control" type="text"  name="name">
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label class="form-label">Email:</label>
+                        <div class="">
+                            <input value="{{ auth()->user()->email }}" class="form-control" type="email" name="email">
+                        </div>
+                    </div>
+
+                    {{-- password --}}
+
+                    @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @elseif (session('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                <div class="mb-3">
+                    <label for="oldPasswordInput" class="form-label">Old Password</label>
+                    <input name="old_password" type="password" class="form-control @error('old_password') is-invalid @enderror" id="oldPasswordInput"
+                        placeholder="Old Password">
+                    @error('old_password')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
-                <h3>Personal info</h3>
+                <div class="mb-3">
+                    <label for="newPasswordInput" class="form-label">New Password</label>
+                    <input name="new_password" type="password" class="form-control @error('new_password') is-invalid @enderror" id="newPasswordInput"
+                        placeholder="New Password">
+                    @error('new_password')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="confirmNewPasswordInput" class="form-label">Confirm New Password</label>
+                    <input name="new_password_confirmation" type="password" class="form-control" id="confirmNewPasswordInput"
+                        placeholder="Confirm New Password">
+                </div>
 
-                <form class="form-horizontal" role="form">
-                    <div class="form-group">
-                        <label class="col-lg-3 control-label">Name</label>
-                        <div class="col-lg-8">
-                            <input class="form-control" type="text" value="Jane">
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label class="col-lg-3 control-label">Email:</label>
-                        <div class="col-lg-8">
-                            <input class="form-control" type="text">
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label class="col-md-3 control-label">Password:</label>
-                        <div class="col-md-8">
-                            <input class="form-control" type="password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-3 control-label">Confirm password:</label>
-                        <div class="col-md-8">
-                            <input class="form-control" type="password">
-                        </div>
-                    </div>
+                    {{-- end password --}}
+                    
                     <div class="form-group">
                         <label class="col-md-3 control-label"></label>
                         <div class="col-md-8">
-                            <input type="button" class="btn btn-primary" value="Save Changes">
+                            <input type="submit" style="background-color:green !important; color : white;" class="btn " value="Save Changes">
                             <span></span>
                             <input type="reset" class="btn btn-default" value="Cancel">
                         </div>
