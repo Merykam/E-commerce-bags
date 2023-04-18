@@ -15,7 +15,7 @@
 
 <body>
 
-    <nav class="navbar">
+    <nav class="navbar bg">
         <div class="brand-container">
             <h1 class="brand">LuxeTote</h1>
 
@@ -65,7 +65,7 @@
         
         <div class="product-container">
             <div class="product-card">
-                <img src="{{ asset('images/gg.jpg') }}" alt="">
+                <img src="{{ asset('images/caramel.PNG') }}" alt="">
                 <div class="intro">
                   <h1>Bag</h1>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -74,7 +74,7 @@
 
             </div>
             <div class="product-card">
-              <img src="{{ asset('images/gg.jpg') }}" alt="">
+              <img src="{{ asset('images/caramel.PNG') }}" alt="">
               <div class="intro">
                 <h1>Bag</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -82,7 +82,7 @@
 
             </div>
             <div class="product-card">
-              <img src="{{ asset('images/gg.jpg') }}" alt="">
+              <img src="{{ asset('images/caramel.PNG') }}" alt="">
               <div class="intro">
                 <h1>Bag</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -100,9 +100,11 @@
     <section class="image-mid-section">
       <div class="image-collage">
         <div class="image-collection">
-          <img src="{{asset('images/3.jpeg')}}" alt="">
-          <img src="{{asset('images/1.jpeg')}}" alt="">
-          <img src="{{asset('images/2.jpeg')}}" alt="">
+          <img class="imgCollection" src="{{asset('images/black.PNG')}}" alt="">
+          <img class="imgCollection" src="{{asset('images/caramel.PNG')}}" alt="">
+          <img class="imgCollection" src="{{asset('images/modelcaramel.PNG')}}" alt="">
+          <img src="{{asset('images/modelcaramel.PNG')}}" alt="">
+          <img src="{{asset('images/caramodel.PNG')}}" alt="">
 
         </div>
 
@@ -110,7 +112,7 @@
 
     </section>
 
-
+    <script src="{{ asset('script/welcome.js') }}"></script>
 
 </body>
 
