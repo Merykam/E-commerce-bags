@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+
+
 </head>
 
 <body>
@@ -64,32 +66,31 @@
         </div>
         
         <div class="product-container">
+
+          @foreach($products as $product)
             <div class="product-card">
-                <img src="{{ asset('images/caramel.PNG') }}" alt="">
+                <img src="{{asset('images/' . $product->image)}} " alt="">
                 <div class="intro">
-                  <h1>Bag</h1>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                  <h1>{{$product->name}}</h1>
+                  <div class="details">
+                    <h6>{{$product->Category->name}}</h6>
+                    <p>$ {{$product->price}} </p>
+                    <div class="btn-container">
+                      <a class="more-detail" href="{{route('item', [$product->id])}}">More details</a>
+
+                    </div>
+                    
+
+                  </div>
+                  
 
                 </div>
 
             </div>
-            <div class="product-card">
-              <img src="{{ asset('images/caramel.PNG') }}" alt="">
-              <div class="intro">
-                <h1>Bag</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-              </div>
 
-            </div>
-            <div class="product-card">
-              <img src="{{ asset('images/caramel.PNG') }}" alt="">
-              <div class="intro">
-                <h1>Bag</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            @endforeach
 
-              </div>
-
-            </div>
+          
 
 
 
@@ -100,9 +101,9 @@
     <section class="image-mid-section">
       <div class="image-collage">
         <div class="image-collection">
-          <img class="imgCollection" src="{{asset('images/black.PNG')}}" alt="">
-          <img class="imgCollection" src="{{asset('images/caramel.PNG')}}" alt="">
-          <img class="imgCollection" src="{{asset('images/modelcaramel.PNG')}}" alt="">
+          <img class="imgCollection" src="{{asset('images/BLAK.PNG')}}" alt="">
+          <img class="imgCollection" src="{{asset('images/CARAMEL1.PNG')}}" alt="">
+          <img class="imgCollection" src="{{asset('images/CARAMELM.PNG')}}" alt="">
           <img src="{{asset('images/modelcaramel.PNG')}}" alt="">
           <img src="{{asset('images/caramodel.PNG')}}" alt="">
 

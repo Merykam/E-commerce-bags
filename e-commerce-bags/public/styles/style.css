@@ -264,6 +264,7 @@ thead{
 }
 .White{
     background-color:rgba(255, 255, 255, 0.9) ;
+    border: 1px solid rgb(190, 176, 176);
 }
 .Gray{
     background-color:Gray ;

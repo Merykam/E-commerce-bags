@@ -125,6 +125,7 @@ body{
 }
 .product-card{
     position: relative;
+    width: 300px;
     height: 300px;
   
     margin: 50px;
@@ -145,6 +146,7 @@ body{
 
     height: 300px;
     border-radius: 3px;
+    background-size: cover;
     
   
 }
@@ -163,12 +165,12 @@ body{
 
 }
 .intro h1{
-    font-size: 40px;
+    font-size: 28px;
     margin:10px;
 }
-.intro p{
-    font-size: 20px;
-    margin:20px;
+.intro .details{
+    font-size: 15px;
+    margin:10px;
     visibility: hidden;
     opacity: 0;
 }
@@ -182,7 +184,7 @@ body{
     background-color: rgb(57, 41, 15);
     
 }
-.product-card:hover p{
+.product-card:hover .details{
     opacity: 1;
     visibility: visible;
 }
@@ -270,4 +272,79 @@ body{
 .bg button{
     color: #3f2f0d;
 }
+.background{
+    background-color: white;
 
+
+}
+.background .link{
+    color: #3f2f0d;
+}
+.background .sign{
+    color: #3f2f0d;
+}
+
+
+/* product page */
+
+.product{
+    width: 100%;
+    margin-top: 120px;
+    padding: 8px 5vw;
+    display: flex;
+    gap: 40px;
+}
+.product-img{
+    width: 80%;
+    height:500px;
+    object-fit: cover;
+}
+.product-title{
+    font-size: 60px;
+}
+.product-des{
+    margin: 30px 0;
+    font-family: 'lato',sans-serif;
+    opacity: 0.5;
+    font-size: 16px;
+    line-height: 3Opx;
+
+}
+.price{
+    font-size: 60px;
+    margin: 30px 0;
+}
+.product-btn{
+    padding: 15px 40px;
+    border: none;
+    color: white;
+    outline: none;
+    margin-right: 10px;
+    font-size: 20px;
+
+}
+.buy-btn{
+    background-color: #d5be8b;
+
+}
+.cart-btn{
+    background-color: black;
+
+}
+.more-detail{
+    border: 3px solid rgb(57, 41, 15) ;
+    border-radius: 1rem;
+    color:   rgb(57, 41, 15) ;
+    background: none;
+    padding: 7px;
+    font-size: small;
+    
+
+    background-color: white;
+    text-decoration: none;
+    
+}
+.btn-container{
+    margin-top: 10px;
+    margin-left: 0;
+}

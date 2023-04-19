@@ -18,13 +18,17 @@ use App\Models\ProductColor;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index']);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/product/{id}', [App\Http\Controllers\WelcomeController::class, 'showProduct'])->name('item');
+
 Route::resource('category', CategoryController::class);
 Route::resource('products', ProductController::class);
 Route::get('/admin',[AdminController::class,'index'] );
