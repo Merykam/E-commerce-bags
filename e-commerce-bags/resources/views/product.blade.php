@@ -11,9 +11,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script
+    src="https://code.jquery.com/jquery-3.6.4.js"
+    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    crossorigin="anonymous"></script>
+    
 
-</head>
 
 <body>
 
@@ -54,24 +57,99 @@
     </nav>
 
     <section class="product">
+        <div class="img-container">
 
-        <img class="product-img" src="{{asset('images/' . $product->image)}}" alt="">
+            <img class="product-img" src="{{ asset('images/' . $product->image) }}" alt="">
+
+        </div>
+
+
         <div class="product-details">
-            <h1 class="product-title">{{$product->name}}</h1>
-            <p class="product-des">{{$product->description}}</p>
-            <p class="price">$ {{$product->price}}</p>
-
-            <div class="btn-container">
-                <button class="product-btn buy-btn">Buy now</button>
-                <button class="product-btn cart-btn">Add to cart</button>
+            <form action="{{ route('addToCart', $product->id) }}" method="post">
+                @csrf
 
 
-            </div>
+                <h1 class="product-title">{{ $product->name }}</h1>
+                <p class="product-des">{{ $product->description }}</p>
+                <p class="price">$ {{ $product->price }}</p>
+
+
+
+
+                <div class="color-quantity">
+                    @foreach ($productcolors as $color)
+                        <div class="flex-column" style="margin:4px">
+                            <input name="color" type="radio" id="color-{{ $color->name }}"
+                                class="btn-color {{ $color->name }}" value="{{ $color->name }}">
+                            <input id="quantity-{{ $color->name }}" style="width: 40px;" name="quantity"
+                                type="number" min="1" max="{{ $color->pivot->quantity }}">
+
+                        </div>
+                    @endforeach
+
+                    <input type="hidden" name="selected-color" id="selected-color" value="">
+                    <input type="hidden" name="selected-quantity" id="selected-quantity" value="">
+
+                </div>
+
+
+                <div class="btn-container">
+                    <button class="product-btn buy-btn">Buy now</button>
+                    <button type="submit" class="product-btn cart-btn">Add to cart</button>
+
+
+                </div>
+
+            </form>
         </div>
 
 
     </section>
 
+    <script>
+        // const colorInputs = document.querySelectorAll('input[name="color"]');
+
+        // colorInputs.forEach(input => {
+
+
+        //     input.addEventListener('change', function() {
+        //         const quantityInput = document.querySelector(`#quantity-${input.value}`);
+        //         if (input.checked) {
+
+        //             quantityInput.removeAttribute('disabled');
+        //         } else {
+        //             quantityInput.setAttribute('disabled', 'disabled');
+        //         }
+        //     });
+        // });
+
+        $(document).ready(function() {
+            // add event listener to radio buttons
+            $('input[name="color"]').change(function() {
+                // get the value of the selected radio button
+                
+                var color = $('input[name="color"]:checked').val();
+                
+
+                // get the value of the corresponding quantity input
+                var quantity = $('#quantity-' + color).val();
+
+                // set the values of the hidden inputs
+                $('#selected-color').val(color);
+                $('#selected-quantity').val(quantity);
+
+                const colo =  document.getElementById('selected-color').value;
+                console.log(colo);
+                const quant =  document.getElementById('selected-quantity').value;
         
+                console.log(quant);
+
+            });
+        });
+        
+   
+
+    </script>
 </body>
+
 </html>

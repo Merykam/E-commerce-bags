@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\color;
+use App\Models\AddToCart;
 
 class Product extends Model
 {
@@ -18,5 +19,11 @@ class Product extends Model
     public function colors()
     {
         return $this->belongsToMany(color::class,'product_color')->withPivot('quantity');
+    }
+
+    public function AddToCart(){
+
+        return $this->belongsTo(AddToCart::class, 'product_id');
+
     }
 }

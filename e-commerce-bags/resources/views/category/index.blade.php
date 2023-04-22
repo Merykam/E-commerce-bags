@@ -9,7 +9,7 @@
                 <h5 class="card-title">{{ $category->name }}</h5>
                 <div class="d-flex">
                 <a href="#" class="btn btn-success">Edit</a>
-                <form method="post" action="{{route('category.destroy',$category->id)}}">
+                    <form method="post" action="{{route('category.destroy',$category->id)}}">
                     @csrf 
                     @method('DELETE')
 

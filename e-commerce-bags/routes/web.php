@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddToCartController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +34,7 @@ Route::resource('category', CategoryController::class);
 Route::resource('products', ProductController::class);
 Route::get('/admin',[AdminController::class,'index'] );
 
+Route::post('/addToCart/{id}',[AddToCartController::class,'addToCart'])->name('addToCart');
 
 // adminRoutes
 
