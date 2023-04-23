@@ -7,24 +7,71 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\AddToCart;
 use App\Models\Product;
 
+
+
+
+
+
+
 class AddToCartController extends Controller
 {
-    public function addToCart(Request $request,$id){
+    public function addToCart(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        $selectedColor = $request->input('selected-color');
+        $selectedQuantity = $request->input('selected-quantity');
+        
+        $price = $product->price;
+        $product_name= $product->name;
+      
+
+            // Store the selected color and quantity in session
+        $request->session()->put('selected-color', $selectedColor);
+        $request->session()->put('selected-quantity', $selectedQuantity);
+        $request->session()->put('price', $price);
+        $request->session()->put('product_name', $product_name);
 
 
-        $product = Product::find($id);
-        $productcolors = $product->colors;
+
+        // Retrieve the cart data from the session
+    $cart = $request->session()->get('cart', []);
+    $cart[] = [
+        'product_name' => $product_name,
+        'selected_color' => $selectedColor,
+        'selected_quantity' => $selectedQuantity,
+        'price' => $price
+    ];
+
+    // Store the updated cart data in the session
+    $request->session()->put('cart', $cart);
+
+    // Pass the cart data to the view
+    return view('card', ['cart' => $cart]);
+
+
+      
+
+        
+    
+
+
+        // return redirect()->back()->with('success', 'Product added to cart!');
+    }
+
+
+
+
+
 
     //     if(Auth::id()){
 
     //         $user = auth()->user();
     //         $AddToCart = new AddToCart;
-           
+
 
     //         return redirect()->back();
     //     }else{
     //         return redirect('login');
     //     }
-        
-    }
+
 }

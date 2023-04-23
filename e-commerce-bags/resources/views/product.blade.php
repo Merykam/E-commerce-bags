@@ -11,11 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-        <script
-    src="https://code.jquery.com/jquery-3.6.4.js"
-    integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
-    crossorigin="anonymous"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+        crossorigin="anonymous"></script>
+
 
 
 <body>
@@ -81,8 +79,8 @@
                         <div class="flex-column" style="margin:4px">
                             <input name="color" type="radio" id="color-{{ $color->name }}"
                                 class="btn-color {{ $color->name }}" value="{{ $color->name }}">
-                            <input id="quantity-{{ $color->name }}" style="width: 40px;" name="quantity"
-                                type="number" min="1" max="{{ $color->pivot->quantity }}">
+                            <input id="quantity-{{ $color->name }}" style="width: 40px;" name="quantity" type="number"
+                                min="1" max="{{ $color->pivot->quantity }}">
 
                         </div>
                     @endforeach
@@ -94,7 +92,7 @@
 
 
                 <div class="btn-container">
-                    <button class="product-btn buy-btn">Buy now</button>
+                    {{-- <button class="product-btn buy-btn">Buy now</button> --}}
                     <button type="submit" class="product-btn cart-btn">Add to cart</button>
 
 
@@ -127,9 +125,9 @@
             // add event listener to radio buttons
             $('input[name="color"]').change(function() {
                 // get the value of the selected radio button
-                
+
                 var color = $('input[name="color"]:checked').val();
-                
+
 
                 // get the value of the corresponding quantity input
                 var quantity = $('#quantity-' + color).val();
@@ -138,17 +136,14 @@
                 $('#selected-color').val(color);
                 $('#selected-quantity').val(quantity);
 
-                const colo =  document.getElementById('selected-color').value;
+                const colo = document.getElementById('selected-color').value;
                 console.log(colo);
-                const quant =  document.getElementById('selected-quantity').value;
-        
+                const quant = document.getElementById('selected-quantity').value;
+
                 console.log(quant);
 
             });
         });
-        
-   
-
     </script>
 </body>
 
