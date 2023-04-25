@@ -58,6 +58,7 @@
                 <button class="sign text-black">Sign up</button>
                 <button class="sign text-black">Sign in</button>
                 <i class="bi bi-cart"></i>
+                {{count($cart)}}
     
     
             </div>
@@ -69,7 +70,7 @@
     <section class="vh-100" style="">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center mt-5">
-                <div class="col">
+                <div class="col" {{$total=0}}>
                    
                     @foreach ($cart as $index => $item)
                     <div class="card mb-4 shadow">
@@ -133,7 +134,7 @@
                             <div class="col-md-2 d-flex justify-content-center">
                                 <div>
                                     <p class="small text-muted mb-4 pb-2">Total</p>
-                                    <p class="lead fw-normal mb-0">$ {{ $item['selected_quantity'] * $item['price'] }}</p>
+                                    <p class="lead fw-normal mb-0"{{ $total += $item['selected_quantity'] * $item['price'] }}>$ {{ $item['selected_quantity'] * $item['price'] }}</p>
                                 </div>
                             </div>
                             <div class="col-md-2 d-flex justify-content-center">
@@ -163,7 +164,7 @@
                     <div class="float-end">
                         <p class="mb-0 me-5 d-flex align-items-center">
                             <span class="small text-muted me-2">Order total:</span> <span
-                                class="lead fw-normal">$799</span>
+                                class="lead fw-normal">${{$total}}</span>
                         </p>
                     </div>
 
