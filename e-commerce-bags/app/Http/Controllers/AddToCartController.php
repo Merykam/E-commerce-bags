@@ -19,7 +19,7 @@ class AddToCartController extends Controller
     {
         $product = Product::findOrFail($id);
         $selectedColor = $request->input('selected-color');
-        $selectedQuantity = $request->input('selected-quantity');
+        // $selectedQuantity = $request->input('selected-quantity');
         
         $price = $product->price;
         $product_name= $product->name;
@@ -27,7 +27,7 @@ class AddToCartController extends Controller
 
             // Store the selected color and quantity in session
         $request->session()->put('selected-color', $selectedColor);
-        $request->session()->put('selected-quantity', $selectedQuantity);
+        // $request->session()->put('selected-quantity', $selectedQuantity);
         $request->session()->put('price', $price);
         $request->session()->put('product_name', $product_name);
 
@@ -38,7 +38,7 @@ class AddToCartController extends Controller
     $cart[] = [
         'product_name' => $product_name,
         'selected_color' => $selectedColor,
-        'selected_quantity' => $selectedQuantity,
+        'selected_quantity' => 1,
         'price' => $price
     ];
 
@@ -55,8 +55,38 @@ class AddToCartController extends Controller
     
 
 
-        // return redirect()->back()->with('success', 'Product added to cart!');
     }
+
+
+    public function delete(Request $request, $index)
+    {
+        $cart = $request->session()->get('cart', []);
+        
+        // Remove the item at the given index
+        array_splice($cart, $index, 1);
+        
+        // Update the cart data in the session
+        $request->session()->put('cart', $cart);
+        
+        // Redirect back to the cart page
+        return view('card', ['cart' => $cart]);
+    }
+
+    public function update(Request $request, $index)
+    {
+        $cart = $request->session()->get('cart', []);
+        $quantity = $request->input('quantity');
+        
+        // Update the quantity of the item at the given index
+        $cart[$index]['selected_quantity'] = $quantity;
+        
+        // Update the cart data in the session
+        $request->session()->put('cart', $cart);
+        
+        // Redirect back to the cart page
+        return view('card', ['cart' => $cart]);
+    }
+
 
 
 

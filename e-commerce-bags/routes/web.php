@@ -35,6 +35,10 @@ Route::resource('products', ProductController::class);
 Route::get('/admin',[AdminController::class,'index'] );
 
 Route::post('/addToCart/{id}',[AddToCartController::class,'addToCart'])->name('addToCart');
+Route::delete('/cart/{index}', [AddToCartController::class,'delete'])->name('cart.delete');
+Route::put('/cart/{index}', [AddToCartController::class,'update'])->name('cart.update');
+
+
 
 // adminRoutes
 

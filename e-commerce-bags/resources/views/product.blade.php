@@ -79,14 +79,14 @@
                         <div class="flex-column" style="margin:4px">
                             <input name="color" type="radio" id="color-{{ $color->name }}"
                                 class="btn-color {{ $color->name }}" value="{{ $color->name }}">
-                            <input id="quantity-{{ $color->name }}" style="width: 40px;" name="quantity" type="number"
-                                min="1" max="{{ $color->pivot->quantity }}">
+                            {{-- <input id="quantity-{{ $color->name }}" style="width: 40px;" name="quantity" type="number"
+                                min="1" max="{{ $color->pivot->quantity }}"> --}}
 
                         </div>
                     @endforeach
 
                     <input type="hidden" name="selected-color" id="selected-color" value="">
-                    <input type="hidden" name="selected-quantity" id="selected-quantity" value="">
+                    {{-- <input type="hidden" name="selected-quantity" id="selected-quantity" value=""> --}}
 
                 </div>
 
