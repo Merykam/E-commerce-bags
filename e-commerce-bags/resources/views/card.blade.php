@@ -13,7 +13,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('styles/style.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('styles/styleWelcome.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -41,66 +42,35 @@
                 </div>
 
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto">
-
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ms-auto">
-                    <!-- Authentication Links -->
-                    @guest
-                        @if (Route::has('login'))
-                            <li class="nav-item login">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                        @endif
-
-                        @if (Route::has('register'))
-                            <li class="nav-item login">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
-                    @else
-                        <div class="dropdown">
-                            <a class=" user-name dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
-                                id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown"
-                                aria-expanded="false">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle"
-                                    height="30" alt="Black and White Portrait of a Man" loading="lazy" />
-                                <span class="ms-2">{{ Auth::user()->name }}</span>
-
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-                                <li>
-                                    <a class="dropdown-item" href="{{ url('/admin') }}">My profile</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('editProfile') }}">Edit profile</a>
-                                </li>
-
-                            </ul>
-                        </div>
-                </div>
-
-            @endguest
+            <ul class="links-container">
+                <li class="link-item"><a href="" class="link active text-black">Home</a></li>
+    
+                <li class="link-item"><a href="" class="link text-black">Product</a></li>
+    
+                <li class="link-item"><a href="" class="link text-black">About</a></li>
+    
+                <li class="link-item"><a href="" class="link text-black">Contact</a></li>
+    
+    
             </ul>
+    
+            <div class="authentifiaction">
+                <button class="sign text-black">Sign up</button>
+                <button class="sign text-black">Sign in</button>
+                <i class="bi bi-cart"></i>
+    
+    
+            </div>
+          
         </div>
-        </div>
+      
     </nav>
 
     <section class="vh-100" style="">
         <div class="container h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="row d-flex justify-content-center align-items-center mt-5">
                 <div class="col">
-                    <p><span class="h2">Shopping Cart </span><span class="h4">(1 item in your cart)</span></p>
+                   
                     @foreach ($cart as $index => $item)
                     <div class="card mb-4 shadow">
                         {{-- @if (count($cart) > 0) --}}
@@ -158,23 +128,24 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-2 d-flex justify-content-center">
-                                            <div>
 
-                                                <p class="lead fw-normal mb-0">
-                                                <form action="{{ route('cart.delete', $index) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit"  class="btn btn-danger ms-2" ><i class="bi bi-archive"></i></button>
-                                                </form>
-                                                </p>
-                                            </div>
-                                        </div>
                     
                             <div class="col-md-2 d-flex justify-content-center">
                                 <div>
                                     <p class="small text-muted mb-4 pb-2">Total</p>
-                                    <p class="lead fw-normal mb-0">$0</p>
+                                    <p class="lead fw-normal mb-0">$ {{ $item['selected_quantity'] * $item['price'] }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-center">
+                                <div>
+
+                                    <p class="lead fw-normal mb-0">
+                                    <form action="{{ route('cart.delete', $index) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"  class="btn btn-danger ms-2" ><i class="bi bi-archive"></i></button>
+                                    </form>
+                                    </p>
                                 </div>
                             </div>
 

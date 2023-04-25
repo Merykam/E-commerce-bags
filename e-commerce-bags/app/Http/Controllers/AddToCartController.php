@@ -32,7 +32,7 @@ class AddToCartController extends Controller
         $request->session()->put('product_name', $product_name);
 
 
-
+        
         // Retrieve the cart data from the session
     $cart = $request->session()->get('cart', []);
     $cart[] = [
