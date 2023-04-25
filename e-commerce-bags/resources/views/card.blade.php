@@ -95,222 +95,248 @@
         </div>
         </div>
     </nav>
-    {{-- 
-    <section class="vh-100" style="background-color: #fdccbc;">
+
+    <section class="vh-100" style="">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col">
                     <p><span class="h2">Shopping Cart </span><span class="h4">(1 item in your cart)</span></p>
+                    @foreach ($cart as $index => $item)
+                    <div class="card mb-4 shadow">
+                        {{-- @if (count($cart) > 0) --}}
 
-                    <div class="card mb-4">
-                        @if (count($cart) > 0)
-                        <div class="card-body p-4">
+                            
+                                <div class="card-body p-4">
 
 
-                            @foreach ($cart as $item)
-                           
 
-                            <div class="row align-items-center">
-                                <div class="col-md-2">
-                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/1.webp"
-                                        class="img-fluid" alt="Generic placeholder image">
-                                </div>
-                                <div class="col-md-2 d-flex justify-content-center">
-                                    <div>
-                                        <p class="small text-muted mb-4 pb-2">Name</p>
-                                        <p class="lead fw-normal mb-0">
-                                            {{ $item['product_name'] }}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 d-flex justify-content-center">
-                                    <div>
-                                        <p class="small text-muted mb-4 pb-2">Color</p>
-                                        <p class="lead fw-normal mb-0">
-                                            {{ $item['selected_color'] }}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 d-flex justify-content-center">
-                                    <div>
-                                        <p class="small text-muted mb-4 pb-2">Quantity</p>
-                                        <p class="lead fw-normal mb-0">
-                                            {{ $item['selected_quantity'] }}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 d-flex justify-content-center">
-                                    <div>
-                                        <p class="small text-muted mb-4 pb-2">Price</p>
-                                        <p class="lead fw-normal mb-0">
-                                            {{ $item['price'] }}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 d-flex justify-content-center">
-                                    <div>
-                                        <p class="small text-muted mb-4 pb-2">Total</p>
-                                        <p class="lead fw-normal mb-0">$0</p>
-                                    </div>
-                                </div>
 
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-md-2 d-flex justify-content-center">
+                                            <div>
+                                                <p class="small text-muted mb-4 pb-2">Name</p>
+                                                <p class="lead fw-normal mb-0">
+                                                    {{ $item['product_name'] }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 d-flex justify-content-center">
+                                            <div>
+                                                <p class="small text-muted mb-4 pb-2">Color</p>
+                                                <p class="lead fw-normal mb-0">
+                                                    {{ $item['selected_color'] }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 d-flex justify-content-center">
+                                            <div>
+                                                <p class="small text-muted mb-4 pb-2">Price</p>
+                                                <p class="lead fw-normal mb-0">
+                                                    $ {{ $item['price'] }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 d-flex justify-content-center">
+                                            <div>
+                                                <p class="small text-muted mb-4 pb-2">Quantity</p>
+                                                <p class="lead fw-normal mb-0">
+                                                <form action="{{ route('cart.update', $index) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <div class="row">
+                                                        <input class="col" style="width:50px" type="number"
+                                                            name="quantity" value="{{ $item['selected_quantity'] }}"
+                                                            min="1">
+                                                        <button type="submit"  class="col btn btn-success ms-2" ><i class="bi bi-pencil-square"></i></button>
+
+                                                    </div>
+
+                                                </form>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2 d-flex justify-content-center">
+                                            <div>
+
+                                                <p class="lead fw-normal mb-0">
+                                                <form action="{{ route('cart.delete', $index) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"  class="btn btn-danger ms-2" ><i class="bi bi-archive"></i></button>
+                                                </form>
+                                                </p>
+                                            </div>
+                                        </div>
+                    
+                            <div class="col-md-2 d-flex justify-content-center">
+                                <div>
+                                    <p class="small text-muted mb-4 pb-2">Total</p>
+                                    <p class="lead fw-normal mb-0">$0</p>
+                                </div>
                             </div>
-                            @endforeach
-                        </div>
-                        @else
-                        <p>No items in the cart</p>
-                    @endif
+
                     </div>
 
-                    <div class="card mb-5">
-                        <div class="card-body p-4">
+                </div>
+            {{-- @else
+                <p>No items in the cart</p>
+                @endif --}}
+            </div>
+            @endforeach
+            <div class="card mb-5">
+                <div class="card-body p-4">
 
-                            <div class="float-end">
-                                <p class="mb-0 me-5 d-flex align-items-center">
-                                    <span class="small text-muted me-2">Order total:</span> <span
-                                        class="lead fw-normal">$799</span>
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-light btn-lg me-2">Continue shopping</button>
-                        <button type="button" class="btn btn-primary btn-lg">Add to cart</button>
+                    <div class="float-end">
+                        <p class="mb-0 me-5 d-flex align-items-center">
+                            <span class="small text-muted me-2">Order total:</span> <span
+                                class="lead fw-normal">$799</span>
+                        </p>
                     </div>
 
                 </div>
             </div>
+
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-light btn-lg me-2">Continue shopping</button>
+                <button type="button" class="btn btn-primary btn-lg">Add to cart</button>
+            </div>
+
         </div>
-    </section>  --}}
+        </div>
+        </div>
+    </section>
 
 
-  
+    {{-- 
     <section class="h-100 h-custom" style="background-color: #d2c9ff;">
         <div class="container py-5 h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12">
-              <div class="card card-registration card-registration-2" style="border-radius: 15px;">
-                <div class="card-body p-0">
-                  <div class="row g-0">
-                    <div class="col-lg-8">
-                      <div class="p-5">
-                        <div class="d-flex justify-content-between align-items-center mb-5">
-                          <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
-                          <h6 class="mb-0 text-muted">3 items</h6>
-                        </div>
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12">
+                    <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                        <div class="card-body p-0">
+                            <div class="row g-0">
+                                <div class="col-lg-8">
+                                    <div class="p-5">
+                                        <div class="d-flex justify-content-between align-items-center mb-5">
+                                            <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
+                                            <h6 class="mb-0 text-muted">3 items</h6>
+                                        </div>
 
-      
 
-      
-                        <hr class="my-4">
-                        @foreach($cart as $index => $item)
-                        <div class="row mb-4 d-flex justify-content-between align-items-center">
-                          <div class="col-md-2 col-lg-2 col-xl-2">
-                            <img
-                              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img6.webp"
-                              class="img-fluid rounded-3" alt="Cotton T-shirt">
-                          </div>
-                          <div class="col-md-3 col-lg-3 col-xl-3">
-                            <h6 class="text-muted">{{ $item['product_name'] }}</h6>
-                            {{-- <h6 class="text-black mb-0">Cotton T-shirt</h6> --}}
-                          </div>
-                          <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                            <button class="btn btn-link px-2"
-                              onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                           
-                            </button>
-      
-                            {{-- <input value="{{ $item['selected_quantity'] }}" id="" style="width: 40px;" name="quantity" type="number"
+
+
+                                        <hr class="my-4">
+                                        @foreach ($cart as $index => $item)
+                                            <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                                <div class="col-md-2 col-lg-2 col-xl-2">
+                                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img6.webp"
+                                                        class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                                </div>
+                                                <div class="col-md-3 col-lg-3 col-xl-3">
+                                                    <h6 class="text-muted">{{ $item['product_name'] }}</h6>
+                                                    {{-- <h6 class="text-black mb-0">Cotton T-shirt</h6> --}}
+    {{-- </div>
+                                                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                                    <button class="btn btn-link px-2"
+                                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+
+                                                    </button> --}}
+
+    {{-- <input value="{{ $item['selected_quantity'] }}" id="" style="width: 40px;" name="quantity" type="number"
                                 min="1" max="5"> --}}
-      
 
-                          </div>
-                          <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                            <h6 class="mb-0">{{ $item['selected_color'] }}</h6>
-                          </div>
-                          <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                            <h6 class="mb-0">$ {{ $item['price'] }}</h6>
-                          </div>
-                          
+    {{-- 
+                                                </div>
+                                                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                    <h6 class="mb-0">{{ $item['selected_color'] }}</h6>
+                                                </div>
+                                                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                    <h6 class="mb-0">$ {{ $item['price'] }}</h6>
+                                                </div>
+
+                                            </div>
+
+                                            <form action="{{ route('cart.delete', $index) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit">Delete</button>
+                                            </form>
+                                            <form action="{{ route('cart.update', $index) }}" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                                                <input type="number" name="quantity"
+                                                    value="{{ $item['selected_quantity'] }}" min="1">
+                                                <button type="submit">Update</button>
+                                            </form>
+                                        @endforeach
+
+
+                                        <hr class="my-4">
+
+
+
+
+
+                                        <div class="pt-5">
+                                            <h6 class="mb-0"><a href="#!" class="text-body"><i
+                                                        class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 bg-grey">
+                                    <div class="p-5">
+                                        <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                                        <hr class="my-4">
+
+                                        <div class="d-flex justify-content-between mb-4">
+                                            <h5 class="text-uppercase">items 3</h5>
+                                            <h5>€ 132.00</h5>
+                                        </div>
+
+                                        <h5 class="text-uppercase mb-3">Shipping</h5>
+
+                                        <div class="mb-4 pb-2">
+                                            <select class="select">
+                                                <option value="1">Standard-Delivery- €5.00</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                                <option value="4">Four</option>
+                                            </select>
+                                        </div>
+
+                                        <h5 class="text-uppercase mb-3">Give code</h5>
+
+                                        <div class="mb-5">
+                                            <div class="form-outline">
+                                                <input type="text" id="form3Examplea2"
+                                                    class="form-control form-control-lg" />
+                                                <label class="form-label" for="form3Examplea2">Enter your code</label>
+                                            </div>
+                                        </div>
+
+                                        <hr class="my-4">
+
+                                        <div class="d-flex justify-content-between mb-5">
+                                            <h5 class="text-uppercase">Total price</h5>
+                                            <h5>€ 137.00</h5>
+                                        </div>
+
+                                        <button type="button" class="btn btn-dark btn-block btn-lg"
+                                            data-mdb-ripple-color="dark">Register</button>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                        <form action="{{ route('cart.delete', $index) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Delete</button>
-                        </form>
-                        <form action="{{ route('cart.update', $index) }}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <input type="number" name="quantity" value="{{ $item['selected_quantity'] }}" min="1">
-                            <button type="submit">Update</button>
-                        </form>
-                        @endforeach
-      
-
-                        <hr class="my-4">
-      
-
-      
-              
-      
-                        <div class="pt-5">
-                          <h6 class="mb-0"><a href="#!" class="text-body"><i
-                                class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
-                        </div>
-                      </div>
                     </div>
-                    <div class="col-lg-4 bg-grey">
-                      <div class="p-5">
-                        <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
-                        <hr class="my-4">
-      
-                        <div class="d-flex justify-content-between mb-4">
-                          <h5 class="text-uppercase">items 3</h5>
-                          <h5>€ 132.00</h5>
-                        </div>
-      
-                        <h5 class="text-uppercase mb-3">Shipping</h5>
-      
-                        <div class="mb-4 pb-2">
-                          <select class="select">
-                            <option value="1">Standard-Delivery- €5.00</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="4">Four</option>
-                          </select>
-                        </div>
-      
-                        <h5 class="text-uppercase mb-3">Give code</h5>
-      
-                        <div class="mb-5">
-                          <div class="form-outline">
-                            <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
-                            <label class="form-label" for="form3Examplea2">Enter your code</label>
-                          </div>
-                        </div>
-      
-                        <hr class="my-4">
-      
-                        <div class="d-flex justify-content-between mb-5">
-                          <h5 class="text-uppercase">Total price</h5>
-                          <h5>€ 137.00</h5>
-                        </div>
-      
-                        <button type="button" class="btn btn-dark btn-block btn-lg"
-                          data-mdb-ripple-color="dark">Register</button>
-      
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </section>
+    </section> --}} 
 </body>
 
 </html>
