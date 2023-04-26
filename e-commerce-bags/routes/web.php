@@ -38,7 +38,8 @@ Route::post('/addToCart/{id}',[AddToCartController::class,'addToCart'])->name('a
 Route::delete('/cart/{index}', [AddToCartController::class,'delete'])->name('cart.delete');
 Route::put('/cart/{index}', [AddToCartController::class,'update'])->name('cart.update');
 
-
+Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout');
+Route::post('/store', [App\Http\Controllers\CheckoutController::class, 'store'])->name('store');
 
 // adminRoutes
 

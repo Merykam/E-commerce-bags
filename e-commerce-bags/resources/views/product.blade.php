@@ -85,7 +85,7 @@
                         </div>
                     @endforeach
 
-                    <input type="hidden" name="selected-color" id="selected-color" value="">
+                    <input type="hidden" name="selected-color" id="selected-color" value="{{$productcolors[0]['name']}}">
                     {{-- <input type="hidden" name="selected-quantity" id="selected-quantity" value=""> --}}
 
                 </div>

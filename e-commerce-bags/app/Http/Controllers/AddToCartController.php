@@ -31,24 +31,36 @@ class AddToCartController extends Controller
         $request->session()->put('price', $price);
         $request->session()->put('product_name', $product_name);
 
+      
 
-        
+       
+
         // Retrieve the cart data from the session
     $cart = $request->session()->get('cart', []);
-    $cart[] = [
+   
+    $cart[]= [
         'product_name' => $product_name,
         'selected_color' => $selectedColor,
         'selected_quantity' => 1,
         'price' => $price
     ];
+    $total=0;
+    foreach ($cart as $index => $item){
+        $total += $item['selected_quantity'] * $item['price'];
+    }
+  
+
+
+
 
     // Store the updated cart data in the session
     $request->session()->put('cart', $cart);
-
+    $request->session()->put('total', $total);
+    // dd(session()->get('total'));
     // Pass the cart data to the view
-    return view('card', ['cart' => $cart]);
+    return view('card', ['cart' => $cart],['total'=> $total]);
 
-
+    
       
 
         

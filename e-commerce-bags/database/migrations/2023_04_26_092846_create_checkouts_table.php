@@ -11,22 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('status')->default(0);
-            $table->string('payment_method');
-            $table->string('payment_status');
-            // $table->string('payment_id');
-            $table->string('adress');
-            // $table->decimal('total_price');
-            $table->string('phone');
+            $table->unsignedBigInteger('user_id');
+            $table->string('name');
             $table->string('email');
+            $table->string('address');
+            $table->string('phone_number');
             $table->string('city');
-            $table->string('postal_code');
-            $table->string('country');
-           
+            $table->float('total_price');
             $table->timestamps();
         });
     }
@@ -36,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('checkouts');
     }
 };

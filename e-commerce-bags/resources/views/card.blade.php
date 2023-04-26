@@ -32,6 +32,7 @@
 </head>
 
 <body>
+   
     <nav class="navbar navbar-expand-md  nav-admin shadow-sm ">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -172,8 +173,8 @@
             </div>
 
             <div class="d-flex justify-content-end">
-                <button type="button" class="btn btn-light btn-lg me-2">Continue shopping</button>
-                <button type="button" class="btn btn-primary btn-lg">Add to cart</button>
+                <a href="{{route('checkout')}}" type="button" class="btn btn-light btn-lg me-2">Continue shopping</a>
+                
             </div>
 
         </div>
