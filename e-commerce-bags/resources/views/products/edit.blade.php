@@ -38,7 +38,7 @@
 
                 </div>
             </div>
-            <div class="overflow-scroll">
+            <div class="">
               
 
                 {{-- dd($product->colors) --}}

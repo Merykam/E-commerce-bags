@@ -75,8 +75,9 @@ class ProductController extends Controller
                     'quantity' => $quantities[$i]
                 ]);
             }
+            return redirect()->route('home');
 
-            return redirect()->route('products.create');
+            
         } catch (\Throwable $th) {
         
             return 'crap';
@@ -126,9 +127,6 @@ class ProductController extends Controller
         try {
           
             $productItems=$request->all();
-         
-           
-            
                 $colors = $request->colors;
                 $quantities = $request->quantity;
 

@@ -58,8 +58,20 @@
             <div class="authentifiaction">
                 <button class="sign text-black">Sign up</button>
                 <button class="sign text-black">Sign in</button>
-                <i class="bi bi-cart"></i>
-                {{count($cart)}}
+                <i class="bi bi-cart">
+                    <span class="position-absolute  translate-middle badge count-container ">
+                        @if (!session('cart'))
+              <span class="count2">0</span>
+              @else
+              <span class="count2">{{count(session('cart'))}}</span>
+              @endif
+             
+                    </span>
+                </i>
+                
+                
+               
+                
     
     
             </div>
@@ -71,6 +83,12 @@
     <section class="vh-100" style="">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center mt-5">
+                @if (!session('cart'))
+              <h1>Empty cart</h1>
+              @else
+              
+           
+             
                 <div class="col" {{$total=0}}>
                    
                     @foreach ($cart as $index => $item)
@@ -178,6 +196,7 @@
             </div>
 
         </div>
+        @endif
         </div>
         </div>
     </section>

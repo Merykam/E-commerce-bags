@@ -53,9 +53,12 @@ class CheckoutController extends Controller
 
     }
 
+     // Remove cart from session
+     $request->session()->forget('cart');
+
         
         
-    return redirect()->route('checkout');
+    return view('thankyou');
     
         // return redirect('/')->with('success', 'Checkout completed successfully!');
     }

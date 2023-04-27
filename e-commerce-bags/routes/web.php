@@ -22,11 +22,13 @@ use App\Models\ProductColor;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index']);
+Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['admin']], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
 
 Route::get('/product/{id}', [App\Http\Controllers\WelcomeController::class, 'showProduct'])->name('item');
 
@@ -45,3 +47,8 @@ Route::post('/store', [App\Http\Controllers\CheckoutController::class, 'store'])
 
 Route::get('/profile', [App\Http\Controllers\AdminController::class, 'profile'])->name('editProfile');
 Route::post('profile/{user}',[AdminController::class,'update'])->name('profile.update');
+Route::get('/thankyou', function(){
+    return view('thankyou');
+});
+
+Route::get('/cartpage', [App\Http\Controllers\AddToCartController::class, 'index'])->name('card');

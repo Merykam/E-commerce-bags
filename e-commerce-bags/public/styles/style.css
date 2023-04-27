@@ -17,8 +17,9 @@
 }
 .sidebar{
     /* background-color: rgb(162, 118, 167) !important; */
-    background-color:#263A29 !important;
+    background-color:rgb(166, 73, 15) !important;
     width: 200px !important;
+   
 }
 .category{
     margin-left:250px ;
@@ -45,7 +46,7 @@
     height: 10rem !important;
     border-radius: 2rem !important; */
     box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 30px -12px;
-    background-image: linear-gradient(to right,white, rgb(75, 104, 75));
+    /* background-image: linear-gradient(to right,white, rgb(166, 73, 15) ); */
     color: black;
 
 }
@@ -93,7 +94,7 @@
 /* categories */
 
 .h2Category{
-    background-image: linear-gradient(to right,#A4BC92, black);
+    background-image: linear-gradient(to right,rgb(166, 73, 15), black);
     color: white;
     padding: 7px;
     border-radius: 2rem;
@@ -169,7 +170,7 @@
     color: white;
 }
 .bg{
-    background-image: linear-gradient(to right,#A4BC92, black);
+    background-image: linear-gradient(to right,rgb(166, 73, 15), black);
 }
 .btn-outline-success{
 
@@ -223,8 +224,16 @@ thead{
     height: 30px;
 }
 .img-show{
-    width: 440px;
+    
     height: 440px;
+    border-radius: 3rem;
+    background-size: cover;
+   
+}
+.img-show-container{
+    border-radius: 3rem;
+
+    box-shadow: 5px 5px 20px black;
 }
 .marginProduit{
     margin-top:60px;
@@ -234,8 +243,8 @@ thead{
     font-size: 25px;
 }
 .btn-color{
-    width: 30px;
-    height: 30px;
+    width: 30px !important;
+    height: 30px !important;
     border-radius: 1rem;
 }
 .Red{
@@ -290,12 +299,18 @@ thead{
 .Lavender{
     background-color:Lavender ;
 }
+.Teal{
+    background-color: Teal;
+}
 .Indigo{
     background-color:Indigo ;
 }
 .btn-update{
     background-color: green !important;
     color: white !important;
+    padding:    0.5rem;
+    border-radius: 10px;
+   
 }
 .btn-eye{
     background-color: rgb(200, 129, 29) !important;
@@ -324,21 +339,21 @@ thead{
 
 
  .img-card-bg{
-    background-color: #b0d0b5;
+    background-color: rgb(236, 194, 168);
     border-top-left-radius: 5rem;
     border-bottom-left-radius: 5rem;
  }
  .bg-card-login{
     border-radius: 5rem !important;
-    box-shadow: #5c8763 5px 10px;
+    box-shadow: rgb(166, 73, 15) 5px 10px;
     border: 1px solid rgb(184, 179, 179);
  }
  .btn-login{
-    background-color: #356c3d !important;
+    background-color: rgb(166, 73, 15) !important;
     color: white !important;
  }
  .login{
-    background-color: #24572b !important;
+    background-color: rgb(166, 73, 15) !important;
     color: white !important;
     border-radius: 1rem;
     padding: 3px;

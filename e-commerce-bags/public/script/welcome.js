@@ -1,8 +1,10 @@
 const navbar= document.querySelector('.navbar');
+const button= document.querySelector('.dropbtn');
 
 window.addEventListener('scroll',()=>{
     if(scrollY>=270){
         navbar.classList.add('bg');
+        button.classList.add('gg');
     }else{
         navbar.classList.remove('bg');
 

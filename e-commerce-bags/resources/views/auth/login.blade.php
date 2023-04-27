@@ -81,6 +81,11 @@
 @include('layouts.navbar')
 
 <!-- Section: Design Block -->
+@if (session('error'))
+<div class="alert alert-danger">
+  {{ session('error') }}
+</div>
+@endif
 <section class="container mt-5 text-center text-lg-start">
     <style>
         .rounded-t-5 {
@@ -213,7 +218,7 @@
                         style="transform-origin: 246.544px 246.317px;">
                         <path
                             d="M340.69,47.11S63.5,88.77,29.85,161.67,82.72,386.79,133.2,429.25,400,430.06,448.85,366,466.47,27.88,340.69,47.11Z"
-                            style="fill: #29914B; transform-origin: 246.544px 246.317px;" id="el69goxgydrpf"
+                            style="fill: rgb(166, 73, 15); transform-origin: 246.544px 246.317px;" id="el69goxgydrpf"
                             class="animable"></path>
                         <g id="elyq9ex49c8x8">
                             <path
@@ -635,7 +640,7 @@
                             style="fill: rgb(38, 50, 56); transform-origin: 262.209px 212.449px;" id="elwi54tc7azsl"
                             class="animable"></path>
                         <polygon points="149.7 364.22 174.55 340.84 180.1 221.56 167.53 213.96 149.7 364.22"
-                            style="fill: #29914B; transform-origin: 164.9px 289.09px;" id="elydbfsuinir"
+                            style="fill: rgb(166, 73, 15); transform-origin: 164.9px 289.09px;" id="elydbfsuinir"
                             class="animable"></polygon>
                         <path
                             d="M149.7,364.72a.48.48,0,0,1-.23-.05.51.51,0,0,1-.27-.5L167,213.9a.52.52,0,0,1,.27-.39.51.51,0,0,1,.48,0l12.57,7.6a.48.48,0,0,1,.24.45l-5.55,119.27a.5.5,0,0,1-.16.34L150,364.59A.48.48,0,0,1,149.7,364.72Zm18.24-149.93L150.36,362.92l23.7-22.31,5.53-118.77Z"
@@ -643,7 +648,7 @@
                             class="animable"></path>
                         <path
                             d="M167.53,214s-5.84-2.33-6.72-2.33-15.5-7-15.5-7L98.83,339.67s21,14.91,30.7,18.71a131.66,131.66,0,0,0,20.17,5.84Z"
-                            style="fill: #29914B; transform-origin: 133.18px 284.445px;" id="elund9lq7qt9"
+                            style="fill: rgb(166, 73, 15); transform-origin: 133.18px 284.445px;" id="elund9lq7qt9"
                             class="animable"></path>
                         <path
                             d="M149.7,364.72h-.1a133.13,133.13,0,0,1-20.25-5.88c-9.6-3.78-29.94-18.15-30.81-18.76a.52.52,0,0,1-.18-.58l46.48-135a.5.5,0,0,1,.69-.29c5.47,2.63,14.47,6.84,15.31,7h0c.9,0,5.89,2,6.88,2.37a.49.49,0,0,1,.31.52L150.2,364.28a.5.5,0,0,1-.5.44ZM99.43,339.48c2.63,1.84,21.43,14.95,30.28,18.43a132.49,132.49,0,0,0,19.56,5.72L167,214.29a49.24,49.24,0,0,0-6.18-2.17c-.86,0-10.54-4.58-15.21-6.82Z"
@@ -738,14 +743,14 @@
                             class="animable"></path>
                         <path
                             d="M315.21,255.94,330,258.05l13.85-1.81,20.47,127.07s-12.34,3.61-31.61,4.81-25.3,1.21-25.3,1.21Z"
-                            style="fill: #29914B; transform-origin: 335.865px 322.635px;" id="elbs37qnyrxk"
+                            style="fill: rgb(166, 73, 15); transform-origin: 335.865px 322.635px;" id="elbs37qnyrxk"
                             class="animable"></path>
                         <path
                             d="M307.38,389.83a.52.52,0,0,1-.36-.16.5.5,0,0,1-.13-.37l7.82-133.39a.48.48,0,0,1,.19-.35.49.49,0,0,1,.38-.11L330,257.54l13.78-1.79a.5.5,0,0,1,.56.41l20.48,127.07a.5.5,0,0,1-.36.56c-.12,0-12.62,3.64-31.72,4.83S307.45,389.83,307.38,389.83Zm8.3-133.32-7.76,132.31c1.84,0,8.76-.2,24.73-1.19A165.56,165.56,0,0,0,363.73,383L343.4,256.8,330,258.55h-.13Z"
                             style="fill: rgb(38, 50, 56); transform-origin: 335.858px 322.638px;" id="el7ltd4n0ch06"
                             class="animable"></path>
                         <polygon points="315.21 255.94 298.95 253.84 277.88 364.34 307.38 389.33 315.21 255.94"
-                            style="fill: #29914B; transform-origin: 296.545px 321.585px;" id="elhjtf5xn7pp"
+                            style="fill: rgb(166, 73, 15); transform-origin: 296.545px 321.585px;" id="elhjtf5xn7pp"
                             class="animable"></polygon>
                         <path
                             d="M307.38,389.83a.49.49,0,0,1-.32-.12l-29.51-25a.51.51,0,0,1-.16-.48l21.07-110.5a.5.5,0,0,1,.56-.4l16.26,2.11a.49.49,0,0,1,.43.52l-7.83,133.39a.49.49,0,0,1-.3.43A.45.45,0,0,1,307.38,389.83Zm-29-25.69,28.52,24.16,7.75-131.92-15.33-2Z"
@@ -756,14 +761,14 @@
                             style="fill: rgb(38, 50, 56); transform-origin: 330px 267.235px;" id="elcc2ler8p9li"
                             class="animable"></path>
                         <line x1="349.99" y1="378" x2="360.98" y2="380.9"
-                            style="fill: #29914B; transform-origin: 355.485px 379.45px;" id="el7vu14ry8jbi"
+                            style="fill: rgb(166, 73, 15); transform-origin: 355.485px 379.45px;" id="el7vu14ry8jbi"
                             class="animable"></line>
                         <path
                             d="M361,381.4l-.13,0-11-2.9a.5.5,0,0,1-.36-.61.48.48,0,0,1,.61-.35l11,2.9a.5.5,0,0,1-.13,1Z"
                             style="fill: rgb(38, 50, 56); transform-origin: 355.527px 379.481px;" id="elux3d6j2dpmb"
                             class="animable"></path>
                         <polyline points="307.38 389.33 333.58 373.67 345.46 376.81"
-                            style="fill: #29914B; transform-origin: 326.42px 381.5px;" id="el8pmzmlz14t"
+                            style="fill: rgb(166, 73, 15); transform-origin: 326.42px 381.5px;" id="el8pmzmlz14t"
                             class="animable"></polyline>
                         <path
                             d="M307.38,389.83a.5.5,0,0,1-.25-.93l26.19-15.66a.53.53,0,0,1,.39-.05l11.88,3.13a.5.5,0,0,1,.35.61.5.5,0,0,1-.61.36l-11.67-3.08-26,15.55A.48.48,0,0,1,307.38,389.83Z"

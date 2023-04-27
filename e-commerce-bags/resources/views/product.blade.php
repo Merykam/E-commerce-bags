@@ -42,7 +42,16 @@
         <div class="authentifiaction">
             <button class="sign">Sign up</button>
             <button class="sign">Sign in</button>
-            <i class="bi bi-cart"></i>
+            <div class="count-container">
+                <i class="bi bi-cart">                
+                </i>
+                @if (!session('cart'))
+                <span class="count2">0</span>
+                @else
+                <span class="count2">{{count(session('cart'))}}</span>
+                @endif
+              </div>
+            
 
 
         </div>
@@ -69,7 +78,7 @@
 
                 <h1 class="product-title">{{ $product->name }}</h1>
                 <p class="product-des">{{ $product->description }}</p>
-                <p class="price">$ {{ $product->price }}</p>
+                <p class="price2">$ {{ $product->price }}</p>
 
 
 
@@ -77,7 +86,7 @@
                 <div class="color-quantity">
                     @foreach ($productcolors as $color)
                         <div class="flex-column" style="margin:4px">
-                            <input name="color" type="radio" id="color-{{ $color->name }}"
+                            <input  name="color" type="radio" id="color-{{ $color->name }}"
                                 class="btn-color {{ $color->name }}" value="{{ $color->name }}">
                             {{-- <input id="quantity-{{ $color->name }}" style="width: 40px;" name="quantity" type="number"
                                 min="1" max="{{ $color->pivot->quantity }}"> --}}
@@ -122,13 +131,23 @@
         // });
 
         $(document).ready(function() {
+            var test = null;
             // add event listener to radio buttons
             $('input[name="color"]').change(function() {
+
+                if(test !== null){
+                    test.css('border', 'none');
+                }
                 // get the value of the selected radio button
-
+              
+               
                 var color = $('input[name="color"]:checked').val();
+                
 
 
+                
+                $(this).css('border', '3px solid black');
+                test=$(this);
                 // get the value of the corresponding quantity input
                 var quantity = $('#quantity-' + color).val();
 
@@ -136,11 +155,10 @@
                 $('#selected-color').val(color);
                 $('#selected-quantity').val(quantity);
 
-                const colo = document.getElementById('selected-color').value;
-                console.log(colo);
-                const quant = document.getElementById('selected-quantity').value;
+                // const colo = document.getElementById('selected-color');
+               
+               
 
-                console.log(quant);
 
             });
         });

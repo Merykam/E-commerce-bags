@@ -76,7 +76,7 @@
                 <td class="d-flex justify-content-center ">
                  
                     <a  class="btn btn-eye d-flex align-items-center" href="{{route('products.show', [$product->id])}}"><i class="bi-eye"></i></a>
-                    <a  class="btn btn-update ms-2" href="{{route('products.edit', [$product->id])}}" ><i class="bi bi-pencil-square"></i></a>
+                    <a  class=" btn-update ms-2" href="{{route('products.edit', [$product->id])}}" ><i class="bi bi-pencil-square"></i></a>
                     <form method="post" action="{{route('products.destroy',[$product->id])}}">
                         @csrf 
                         @method('DELETE')

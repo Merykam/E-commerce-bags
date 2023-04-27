@@ -32,7 +32,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                   <div class="d-flex">
-                    <img  width="40px" height="40px" class="brand-img" src="{{asset('images/green.png')}}" alt="" srcset=""> 
+                    <img  width="40px" height="40px" class="brand-img" src="{{asset('images/logo3.png')}}" alt="" srcset=""> 
                     <h1 class="brand">LuxeTote</h1>
                   </div>
                    

@@ -18,6 +18,10 @@ class AddToCartController extends Controller
     public function addToCart(Request $request, $id)
     {
         $product = Product::findOrFail($id);
+
+    
+        
+
         $selectedColor = $request->input('selected-color');
         // $selectedQuantity = $request->input('selected-quantity');
         
@@ -68,6 +72,24 @@ class AddToCartController extends Controller
 
 
     }
+    public function index(){
+
+
+             // Retrieve the cart data from the session
+    $cart = session()->get('cart');
+
+    $total=0;
+    foreach ($cart as $index => $item){
+        $total += $item['selected_quantity'] * $item['price'];
+    }
+
+
+    return view('card', ['cart' => $cart],['total'=> $total]);
+
+    }
+
+
+
 
 
     public function delete(Request $request, $index)
@@ -90,6 +112,8 @@ class AddToCartController extends Controller
         $quantity = $request->input('quantity');
         
         // Update the quantity of the item at the given index
+        
+
         $cart[$index]['selected_quantity'] = $quantity;
         
         // Update the cart data in the session
